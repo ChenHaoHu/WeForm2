@@ -1,0 +1,49 @@
+wxapp:
+  appid: wx4f4a31c69f79cd6e
+  appsecret: 00e8d5e94cd39adfccceca56a8ec407d
+
+spring:
+  datasource:
+    username: weform
+    password: jTeGac65Xs7pJz8A
+    url: jdbc:mysql://120.78.174.107:3306/weform?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    # 初始化大小，最小，最大
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    # 配置获取连接等待超时的时间
+    maxWait: 60000
+    # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+    timeBetweenEvictionRunsMillis: 60000
+    # 配置一个连接在池中最小生存的时间，单位是毫秒
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+
+    poolPreparedStatements: true
+    # 配置监控统计拦截的filters,去掉监控界面sql无法统计，‘wall’用于防火墙
+    filters: stat,wall,log4j
+    maxPoolPreparedStatementPerConnectionSize: 20
+    userGlobalDataSourceStat: true
+    # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+  redis:
+    database: 9
+    host: 47.106.147.215
+    port: 6379
+
+
+#server:
+#  port: 443
+#  ssl:
+#    key-store: classpath:214955576050011.pfx
+#    key-store-password: 214955576050011
+#    key-store-type: PKCS12
+  server:
+    port: 8080
+  tomcat:
+    max-http-post-size: 104857600
