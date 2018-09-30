@@ -1,0 +1,23 @@
+<view class='tag'>
+  # 运动
+</view>
+
+<view class='items'>
+  <view class='item'>
+    <view class='top'>
+    <image src="{{icon}}"  mode='aspectFill'></image>
+    <view class='name'>简单DI年华</view>
+    </view>
+    <view class='con'>
+
+      <view class='left'>
+        <view class='title'>研究如何写更好的代码？</view>
+         <view class='content'>研究如何写更好的代码？</view>
+      </view>
+      <view class='right'>
+      <image src="{{icon}}"  mode='aspectFill'></image>
+      </view>
+ 
+    </view>
+  </view>
+</view>

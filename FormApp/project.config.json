@@ -1,0 +1,52 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.2.1",
+	"appid": "wx4f4a31c69f79cd6e",
+	"projectname": "FormApp",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 1,
+			"list": [
+				{
+					"id": -1,
+					"name": "更多标签",
+					"pathName": "pages/tag_more/tag_more",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "标签详细",
+					"pathName": "pages/tag_detail/tag_detail"
+				}
+			]
+		}
+	}
+}

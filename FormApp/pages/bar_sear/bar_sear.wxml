@@ -1,0 +1,58 @@
+<view class="page">
+
+  <view class='appmessage'>
+    <image src='../../img/listimg/list.png'></image>
+    <view>开发者私信</view>
+  </view>
+
+
+  <view class='groupmessage'>
+    <view class='title'>我的群组</view>
+    <view class='con'>
+      <view class='item'>
+        <image src='http://p19.qhimg.com/bdm/360_222_0/t0178eefecdce9951a5.jpg'></image>
+        <view class='groupname'>微信小程序开发群</view>
+        <view class='notice'>
+          <view class='groupdate'>9-10</view>
+          <view class='num'>5</view>
+        </view>
+      </view>
+       <view class='item'>
+        <image src='http://p19.qhimg.com/bdm/360_222_0/t0178eefecdce9951a5.jpg'></image>
+        <view class='groupname'>微信小程序开发群</view>
+        <view class='notice'>
+          <view class='groupdate'>9-10</view>
+          <view class='num'>5</view>
+        </view>
+      </view>
+       <view class='item'>
+        <image src='http://p19.qhimg.com/bdm/360_222_0/t0178eefecdce9951a5.jpg'></image>
+        <view class='groupname'>微信小程序开发群</view>
+        <view class='notice'>
+          <view class='groupdate'>9-10</view>
+          <view class='num'>5</view>
+        </view>
+      </view>
+       <view class='item'>
+        <image src='http://p19.qhimg.com/bdm/360_222_0/t0178eefecdce9951a5.jpg'></image>
+        <view class='groupname'>微信小程序开发群</view>
+        <view class='notice'>
+          <view class='groupdate'>9-10</view>
+          <view class='num'>5</view>
+        </view>
+      </view>
+       <view class='item'>
+        <image src='http://p19.qhimg.com/bdm/360_222_0/t0178eefecdce9951a5.jpg'></image>
+        <view class='groupname'>微信小程序开发群</view>
+        <view class='notice'>
+          <view class='groupdate'>9-10</view>
+          <view class='num'>5</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+
+
+</view>

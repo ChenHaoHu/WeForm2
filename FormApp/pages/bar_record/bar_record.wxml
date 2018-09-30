@@ -1,0 +1,53 @@
+<i-tabs current="{{ current }}" color="#ffb93f" bindchange="handleChange" class="tab">
+  <i-tab key="tab1" title="已报名" count="3"></i-tab>
+  <i-tab key="tab2" title="已创建"></i-tab>
+  <i-tab key="tab3" title="已分享" dot></i-tab>
+</i-tabs>
+
+<view wx:if="{{current == 'tab1'}}" class='page'>
+
+<scroll-view scroll-y style="height: 900px;" bindscrolltoupper="upper" enable-back-to-top>
+ <view class='reg-item'>
+    <view class='title'>项目名称
+      <i-tag class="i-tags" name="标签一" color="yellow">
+        标签一
+      </i-tag>
+      <i-tag class="i-tags" name="标签一" color="green">
+        标签一
+      </i-tag>
+    </view>
+
+    <view class='state'>审核
+      <text>\n</text>通过</view>
+    <image src='../../img/listimg/list.png'></image>
+    <view class='reg-time'>2018-7-8</view>
+    <view class='reg-con'>
+      这里展示项目的基本信息这里展示项目的基本信息这里展示项目的基本信息这里展示项目的基本信息这里展示项目的
+    </view>
+  </view>
+
+  <view class='reg-item'>
+    <view class='title'>项目名称
+      <i-tag class="i-tags" name="标签一" color="yellow">
+        标签一
+      </i-tag>
+      <i-tag class="i-tags" name="标签一" color="green">
+        标签一
+      </i-tag>
+    </view>
+
+    <view class='state'>审核
+      <text>\n</text>通过</view>
+    <image src='../../img/listimg/list.png'></image>
+    <view class='reg-time'>2018-7-8</view>
+    <view class='reg-con'>
+      这里展示项目的基本信息这里展示项目的基本信息这里展示项目的基本信息这里展示项目的基本信息这里展示项目的
+    </view>
+  </view>
+
+
+</scroll-view>
+ 
+</view>
+<view wx:if="{{current == 'tab2'}}">tab2</view>
+<view wx:if="{{current == 'tab3'}}">tab3</view>

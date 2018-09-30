@@ -1,0 +1,357 @@
+.step {
+  height: 250rpx;
+  background-color: #f9f9f9;
+  width: 100%;
+  position: fixed;
+  top: 0rpx;
+  z-index: 100;
+}
+
+i-steps {
+  position: absolute;
+  top: 60rpx;
+  width: 100%;
+  background-color: #f9f9f9;
+}
+
+.pages {
+  background-color: #f9f9f9;
+  width: 100%;
+  padding-top: 250rpx;
+}
+
+.page1 {
+  width: 100%;
+  height: 100%;
+  min-height: 1000rpx;
+  background-color: #f9f9f9;
+  margin-bottom: 30rpx;
+}
+
+.page1 .items {
+  width: 96%;
+  margin-left: 2%;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 100rpx;
+  padding-top: 30rpx;
+}
+
+.page1 .item {
+  position: relative;
+  padding: 10rpx;
+  border-radius: 30rpx;
+  background-color: white;
+  margin-bottom: 40rpx;
+}
+
+.page1 .type {
+  position: absolute;
+  bottom: 10rpx;
+  font-size: 25rpx;
+  color: #888;
+  left: 20rpx;
+}
+
+.page1 i-panel {
+  text-align: center;
+  font-size: 30rpx;
+}
+
+.page1 .inputtag {
+  text-align: center;
+  width: 50%;
+  margin-left: 25%;
+  border-top: 2rpx solid #999;
+  border-bottom: 2rpx solid #999;
+  margin-top: 10rpx;
+  font-size: 30rpx;
+  margin-bottom: 50rpx;
+}
+
+.page1 .radioitem, .page1 .checkeditem {
+  width: 90%;
+  height: 80rpx;
+  margin-left: 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border: 1rpx solid #999;
+  border-radius: 20rpx;
+  margin-top: 30rpx;
+}
+
+.page1 .notice {
+  width: 20%;
+  font-size: 30rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border-right: 1rpx solid #888;
+}
+
+.page1 .selectinput {
+  width: 55%;
+  font-size: 35rpx;
+  height: 60rpx;
+  margin-top: 10rpx;
+  padding-left: 10rpx;
+}
+
+.page1 .selectinput input {
+  width: 100%;
+  text-align: center;
+}
+
+.page1 .deleselect {
+  background-color: red;
+  color: white;
+  margin-right: 5%;
+  font-size: 28rpx;
+  line-height: 50rpx;
+  height: 50rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  width: 20%;
+  margin-top: 15rpx;
+}
+
+.page1 .addselect {
+  /* background-color: rebeccapurple; */
+  width: 70%;
+  margin-left: 15%;
+  height: 100rpx;
+  text-align: center;
+  font-weight: 900;
+  font-size: 50rpx;
+}
+
+.page1 .delete {
+  position: absolute;
+  right: 20rpx;
+  bottom: 10rpx;
+  margin-top: 10rpx;
+  width: 20%;
+  background-color: red;
+  color: white;
+  font-size: 28rpx;
+  line-height: 50rpx;
+  height: 50rpx;
+  border-radius: 10rpx;
+  text-align: center;
+}
+
+.selects {
+  position: fixed;
+  bottom: 0rpx;
+  height: 100rpx;
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.selectsitem {
+  width: 50%;
+  font-size: 20rpx;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.grid {
+  position: fixed;
+  width: 100%;
+  z-index: 300;
+  bottom: 120rpx;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.gridcon {
+  padding: 30rpx;
+  width: 80%;
+  background-color: white;
+  font-size: 30rpx;
+}
+
+ .gridnotice {
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+
+.page2 .pag2con {
+  height: auto;
+  margin-bottom: 300rpx;
+}
+
+.page2 .item {
+  width: 90%;
+  margin-left: 5%;
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  font-size: 28rpx;
+  line-height: 80rpx;
+  border-bottom: 1rpx solid #f3f3f3;
+  margin-bottom: 5rpx;
+}
+
+.page2 .item .name {
+  width: 30%;
+  padding-left: 10rpx;
+  color: #888;
+}
+
+.page2 .item input {
+  width: 70%;
+  height: 80rpx;
+}
+
+.page2 .item textarea {
+  width: 70%;
+  height: 300rpx;
+  padding: 10rpx;
+}
+
+.page2 .item picker {
+  width: 70%;
+  height: 80rpx;
+}
+
+.page2 .password {
+  width: 70%;
+  height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.page2 .passwordinput {
+  margin-top: 10rpx;
+  width: 60rpx;
+  height: 60rpx;
+  border-bottom: 1rpx solid #00a4ff;
+   display: flex;
+  flex-direction: row;
+}
+
+.page2 .password input {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.page3 {
+  width: 100%;
+  /* height: 1300rpx; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.page3 .preview {
+  width: 90%;
+  background-color: white;
+}
+
+.page3 .item {
+  width: 90%;
+  margin-left: 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #fff;
+  font-size: 28rpx;
+  line-height: 80rpx;
+  border-bottom: 1rpx solid #888;
+  margin-bottom: 5rpx;
+}
+
+.page3 .item .name {
+  padding-left: 10rpx;
+  color: #111;
+}
+
+.page3 .item input {
+  height: 80rpx;
+}
+
+.page3 .item2 {
+  width: 90%;
+  margin-left: 5%;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  font-size: 28rpx;
+  line-height: 80rpx;
+  border-bottom: 1rpx solid #888;
+  margin-bottom: 5rpx;
+}
+
+.page3 .item2 .name2 {
+  width: 100%;
+  padding-left: 10rpx;
+  color: #111;
+}
+
+
+.page3 .radio-group {
+  margin-left: 10%;
+  display: flex;
+  flex-direction: column;
+}
+
+.page3 .title {
+  width: 60%;
+  margin-left: 20%;
+  border-bottom: 1rpx solid #888;
+  text-align: center;
+  padding-top: 30rpx;
+  font-size: 35rpx;
+  margin-bottom: 10rpx;
+}
+
+.buts {
+  width: 150rpx;
+  height: 360rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 120rpx;
+  right: 40rpx;
+  font-size: 25rpx;
+
+}
+
+.buts view {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.buts .icon {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.postimg{
+  width: 100%;
+  margin-top: 10rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.postimg image{
+  width: 150rpx;
+  height: 150rpx;
+  margin-right: 30rpx;
+  margin-bottom: 20rpx;
+}
+

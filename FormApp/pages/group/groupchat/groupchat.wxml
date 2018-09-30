@@ -1,0 +1,66 @@
+<view class="tabbar">
+* * * 示范群名 * * *
+
+<view class="groupdata">群信息</view>
+</view>
+
+
+<scroll-view  scroll-y style="height: 1000rpx;">
+ <view class="weui-form-preview message" >
+            <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">发布时间</view>
+                    <view class="weui-form-preview__value_in-hd">2017-4-5</view>
+                </view>
+            </view>
+            <view class="weui-form-preview__bd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">主题</view>
+                    <view class="weui-form-preview__value">修正时间</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">发布人</view>
+                    <view class="weui-form-preview__value">蜡笔小新</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">内容</view>
+                    <view class="weui-form-preview__value">更正比赛时间为当天下午</view>
+                </view>
+            </view>
+            <view class="getmessage">
+             收  到
+            </view>
+        </view>
+
+
+       <view class="weui-form-preview message" >
+            <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">发布时间</view>
+                    <view class="weui-form-preview__value_in-hd">2017-4-5</view>
+                </view>
+            </view>
+            <view class="weui-form-preview__bd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">主题</view>
+                    <view class="weui-form-preview__value">修正时间</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">发布人</view>
+                    <view class="weui-form-preview__value">蜡笔小新</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">内容</view>
+                    <view class="weui-form-preview__value">更正比赛时间为当天下午</view>
+                </view>
+            </view>
+            <view class="getmessage">
+             收  到
+            </view>
+        </view>
+</scroll-view>
+
+<view class="footer">
+<view class='but1'>重新编辑</view>
+<view class='but2'>退群</view>
+</view>

@@ -1,0 +1,56 @@
+{
+  "pages": [
+    "pages/bar_home/bar_home",
+    "pages/bar_mydata/bar_mydata",
+    "pages/addquestionnaire/addquestionnaire",
+    "pages/bar_add/bar_add",
+    "pages/group/groupchat/groupchat",
+    "pages/bar_record/bar_record",
+    "pages/bar_sear/bar_sear",
+    "pages/addactivity/addactivity",
+    "pages/tag_more/tag_more",
+    "pages/tag_detail/tag_detail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#00a4ff",
+    "navigationBarTitleText": "啃芝士表单",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#353535",
+    "selectedColor": "#00a4ff",
+    "list": [
+      {
+        "pagePath": "pages/bar_home/bar_home",
+        "text": "首页",
+        "iconPath": "tabbar/bar2_home.png",
+        "selectedIconPath": "tabbar/bar1_home.png"
+      },
+      {
+        "pagePath": "pages/bar_record/bar_record",
+        "text": "记录",
+        "iconPath": "tabbar/bar2_message.png",
+        "selectedIconPath": "tabbar/bar1_message.png"
+      },
+      {
+        "pagePath": "pages/bar_add/bar_add",
+        "iconPath": "tabbar/bar2_add.png",
+        "selectedIconPath": "tabbar/bar1_add.png",
+        "text": "发布"
+      },
+      {
+        "pagePath": "pages/bar_sear/bar_sear",
+        "iconPath": "tabbar/bar2_sear.png",
+        "selectedIconPath": "tabbar/bar1_sear.png",
+        "text": "发现"
+      },
+      {
+        "pagePath": "pages/bar_mydata/bar_mydata",
+        "iconPath": "tabbar/bar2_mydata.png",
+        "selectedIconPath": "tabbar/bar1_mydata.png",
+        "text": "我的"
+      }
+    ]
+  }
+}
