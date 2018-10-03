@@ -57,7 +57,7 @@ public class UserServiceImpl implements UserService {
     public Integer addUser(String name,String code,String gender,String avatar,
                            String province,String city,String country) {
 
-        String openid ="321";
+        String openid = wxApi.getOpenid(code);
         User user =  new User(openid,name,avatar,gender,province,city,country);
         userMapper.insertUser(user);
         return user.getuserid();

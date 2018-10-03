@@ -17,8 +17,8 @@ public interface UserService {
 
     Integer getUseidByOpenid(String code);
 
-    Integer addUser(String name,String code,String gender,String avatar,
-                    String province,String city,String country);
+    Integer addUser(String name, String code, String gender, String avatar,
+                    String province, String city, String country);
 
     List<User> getAllUsers();
 

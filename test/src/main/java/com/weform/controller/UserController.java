@@ -30,7 +30,8 @@ public class UserController {
             @ApiImplicitParam(paramType="query",name="avatar",dataType="String",required=true,value="头像",defaultValue="https://fanyi.baidu.com/"),
             @ApiImplicitParam(paramType="query",name="province",dataType="String",required=true,value="省份",defaultValue="anhui"),
             @ApiImplicitParam(paramType="query",name="city",dataType="String",required=true,value="城市",defaultValue="tongcheng"),
-            @ApiImplicitParam(paramType="query",name="country",dataType="String",required=true,value="国家",defaultValue="china")
+            @ApiImplicitParam(paramType="query",name="country",dataType="String",required=true,value="国家",defaultValue="china"),
+
     })
     @RequestMapping(value="/login",method= RequestMethod.GET)
     public ResponseEntity getUser(@RequestParam("name") String name,

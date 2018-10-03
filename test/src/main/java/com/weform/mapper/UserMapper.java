@@ -23,6 +23,6 @@ public interface UserMapper {
 
     //通过openid寻找用户
     @Select("SELECT userid FROM user WHERE openid = #{openid}")
-    public Integer[] findUseridByOpenid(@Param("openid")String openid);
+    public Integer[] findUseridByOpenid(@Param("openid") String openid);
 
 }

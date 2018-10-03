@@ -39,6 +39,32 @@ public class Form {
     private String posterurl;
     //签到表的id 如果没有就为 -1
     private Integer signid;
+    //是否公开
+    private String ispublic;
+    //发起人名称
+    private String username;
+    //标签
+    private String tags;
+
+    public Form() {
+    }
+
+    public Form(Integer userid, String title, String type, String mode, String start, String end, String create, Integer maxnum, String intro, String iconurl, String posterurl, String ispublic, String username, String tags) {
+        this.userid = userid;
+        this.title = title;
+        this.type = type;
+        this.mode = mode;
+        this.start = start;
+        this.end = end;
+        this.create = create;
+        this.maxnum = maxnum;
+        this.intro = intro;
+        this.iconurl = iconurl;
+        this.posterurl = posterurl;
+        this.ispublic = ispublic;
+        this.username = username;
+        this.tags = tags;
+    }
 
     public Form(Integer formid, Integer userid, String title, String type, String mode, String start, String end, String create, Integer maxnum, String intro, String iconurl, String docurl, String password, String starlist, String posterurl, Integer signid) {
         this.formid = formid;
@@ -185,5 +211,29 @@ public class Form {
 
     public void setSignid(Integer signid) {
         this.signid = signid;
+    }
+
+    public String getIspublic() {
+        return ispublic;
+    }
+
+    public void setIspublic(String ispublic) {
+        this.ispublic = ispublic;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getTags() {
+        return tags;
+    }
+
+    public void setTags(String tags) {
+        this.tags = tags;
     }
 }
