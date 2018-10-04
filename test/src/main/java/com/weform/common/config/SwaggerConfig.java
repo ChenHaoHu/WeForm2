@@ -1,4 +1,4 @@
-package com.weform.config;
+package com.weform.common.config;
 
 import io.swagger.annotations.Api;
 import org.springframework.context.annotation.Bean;
@@ -7,15 +7,14 @@ import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
-import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
 @Configuration
-public class SwaggerConfig {
+public class SwaggerConfig  {
  
     @Bean
-    public Docket docket() {
+    public Docket docket()  {
         return new Docket(DocumentationType.SWAGGER_2)
 //                .host("weform.hcyang.top")
                 .apiInfo(apiInfo())
@@ -37,5 +36,16 @@ public class SwaggerConfig {
 //                .version("1.0.1")
                 .build();
     }
- 
+    /**
+     * 防止@EnableMvc把默认的静态资源路径覆盖了，手动设置的方式
+     * @param registry
+     */
+//    @Override
+//    protected void addResourceHandlers(ResourceHandlerRegistry registry) {
+//        registry.addResourceHandler("swagger-ui.html")
+//                .addResourceLocations("classpath:/META-INF/resources/");
+//
+//        registry.addResourceHandler("/webjars/**")
+//                .addResourceLocations("classpath:/META-INF/resources/webjars/");
+//    }
 }

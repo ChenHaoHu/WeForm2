@@ -4,6 +4,8 @@ import com.weform.model.User;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 /**
  * @Auther: 简单DI年华
  * @Date: 18-9-27 00:06
@@ -19,10 +21,15 @@ public interface UserMapper {
             " VALUES(#{user.openid},#{user.name},#{user.avatar}," +
             "#{user.gender},#{user.province},#{user.city},#{user.country},#{user.time});")
     @Options(useGeneratedKeys = true, keyProperty = "user.userid")
-    public int insertUser(@Param("user") User user);
+    int insertUser(@Param("user") User user);
 
     //通过openid寻找用户
     @Select("SELECT userid FROM user WHERE openid = #{openid}")
-    public Integer[] findUseridByOpenid(@Param("openid") String openid);
+    Integer[] findUseridByOpenid(@Param("openid") String openid);
+
+
+    //通过userid寻找用户
+    @Select("SELECT * FROM user WHERE userid = #{userid} LIMIT 1")
+    User findUserByUserid(@Param("userid") String userid);
 
 }

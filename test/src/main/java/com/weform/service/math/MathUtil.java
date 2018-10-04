@@ -1,4 +1,4 @@
-package com.weform.service.operation;
+package com.weform.service.math;
 
 import org.springframework.stereotype.Service;
 
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
  */
 
 @Service
-public interface MathOper {
+public interface MathUtil {
 
    String  getFormPassWord(int code);
 

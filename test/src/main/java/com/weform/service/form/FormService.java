@@ -17,6 +17,8 @@ public interface FormService {
 
     Form getFormByPassword(String password);
 
+    String getFormTitle(Integer formid);
+
     String deleForm();
 
     String editForm();

@@ -1,4 +1,4 @@
-package com.weform.service.operation;
+package com.weform.service.math;
 
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ import java.util.Formatter;
  */
 
 @Service
-public class MathOperImpl implements MathOper {
+public class MathUtilImpl implements MathUtil {
     @Override
     public String getFormPassWord(int code) {
 

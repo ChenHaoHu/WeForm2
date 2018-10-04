@@ -5,7 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.weform.common.request.RequestForm;
 import com.weform.mapper.FormMapper;
 import com.weform.model.Form;
-import com.weform.service.operation.MathOper;
+import com.weform.service.math.MathUtil;
 import com.weform.service.time.TimeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,7 +28,7 @@ public class FormServiceImpl implements FormService {
     TimeUtil timeUtil;
     //注入数学运算
     @Autowired
-    MathOper mathOper;
+    MathUtil mathUtil;
 
 
     @Override
@@ -40,7 +40,7 @@ public class FormServiceImpl implements FormService {
                 data.getIspublic(),data.getUsername(),data.getTags());
 
         formMapper.insertform(form);
-       String password =  mathOper.getFormPassWord(form.getFormid());
+       String password =  mathUtil.getFormPassWord(form.getFormid());
 
        formMapper.addpassword(form.getFormid(),password);
 
@@ -60,6 +60,13 @@ public class FormServiceImpl implements FormService {
     public Form getFormByPassword(String password) {
            Form form  = formMapper.getFromByPassword(password);
         return form;
+    }
+
+    @Override
+    public String getFormTitle(Integer formid) {
+
+        String titleByFormid = formMapper.getTitleByFormid(formid + "");
+        return titleByFormid;
     }
 
     @Override

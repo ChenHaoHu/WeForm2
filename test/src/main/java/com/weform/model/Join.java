@@ -5,7 +5,7 @@ package com.weform.model;
  * @Date: 18-9-27 00:03
  * @Description: 用户填写加入的数据表
  * */
-public class Jsonlist {
+public class Join {
 
     /**
      *   `id` int(11) NOT NULL,
@@ -17,20 +17,42 @@ public class Jsonlist {
     //编号
     private Integer id;
     //表单的id
-    private Integer formid;
+    private String formid;
     //用户id
-    private Integer userid;
+    private String userid;
     //内容 json
     private String content;
     //加入时间
     private String time;
+    //是否删除
+    private boolean isdelete;
 
-    public Jsonlist(Integer id, Integer formid, Integer userid, String content, String time) {
+    public Join() {
+    }
+
+    public Join(String formid, String userid, String content, String time, boolean isdelete) {
+        this.formid = formid;
+        this.userid = userid;
+        this.content = content;
+        this.time = time;
+        this.isdelete = isdelete;
+    }
+
+    public Join(Integer id, String formid, String userid, String content, String time, boolean isdelete) {
         this.id = id;
         this.formid = formid;
         this.userid = userid;
         this.content = content;
         this.time = time;
+        this.isdelete = isdelete;
+    }
+
+    public boolean isIsdelete() {
+        return isdelete;
+    }
+
+    public void setIsdelete(boolean isdelete) {
+        this.isdelete = isdelete;
     }
 
     public Integer getId() {
@@ -41,19 +63,19 @@ public class Jsonlist {
         this.id = id;
     }
 
-    public Integer getFormid() {
+    public String getFormid() {
         return formid;
     }
 
-    public void setFormid(Integer formid) {
+    public void setFormid(String formid) {
         this.formid = formid;
     }
 
-    public Integer getUserid() {
+    public String getUserid() {
         return userid;
     }
 
-    public void setUserid(Integer userid) {
+    public void setUserid(String userid) {
         this.userid = userid;
     }
 

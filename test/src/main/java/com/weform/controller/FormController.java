@@ -63,4 +63,16 @@ public class FormController {
 
         return  new ResponseEntity(RespCode.SUCCESS,formByPassword);
     }
+
+    @ApiOperation(value = "表单主题查询",notes = "根据表单id查找表单主题")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType="query",name="formid",dataType="int",required=true,value="表单id",defaultValue="1018"),
+    })
+    @RequestMapping(value="/title",method= RequestMethod.GET)
+    public ResponseEntity getTitleByFormid(Integer formid) {
+
+        String formTitle = formService.getFormTitle(formid);
+
+        return  new ResponseEntity(RespCode.SUCCESS,formTitle);
+    }
 }

@@ -30,6 +30,9 @@ public class CommonControler {
     @Value("${ip.home}")
     String home;
 
+    @Value("${path.images}")
+    String path;
+
     /**
      * 获取图片信息
      * 获取图片信息的同时是保存图片在服务器 并以身份证号命名
@@ -44,13 +47,15 @@ public class CommonControler {
     @PostMapping(value = "/upload")
     public ResponseEntity uploadFile(@RequestParam("file") MultipartFile file){
 
+
+
         System.out.println(file.getOriginalFilename());
         String[] names = file.getOriginalFilename().split("\\.");
         String name = System.currentTimeMillis()+"."+names[names.length-1];
 
         try {
             InputStream inputStream = file.getInputStream();
-            File out = new File("E:/images/"+name);
+            File out = new File(path+name);
             FileOutputStream outputStream = new FileOutputStream(out);
             int temp;
             while ((temp = inputStream.read())!= -1){
@@ -64,6 +69,6 @@ public class CommonControler {
             System.out.println("出现错误");
             System.out.println(e.fillInStackTrace());
         }
-        return new ResponseEntity(RespCode.SUCCESS,home+name);
+        return new ResponseEntity(RespCode.SUCCESS,home+"images/"+name);
     }
 }

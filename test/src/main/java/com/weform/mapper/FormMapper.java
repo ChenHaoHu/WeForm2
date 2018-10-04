@@ -24,14 +24,22 @@ public interface FormMapper {
             ",#{form.intro},#{form.iconurl},#{form.posterurl}" +
             ",#{form.tags},#{form.ispublic},#{form.username});")
     @Options(useGeneratedKeys = true, keyProperty = "form.formid")
-    public int insertform(@Param("form") Form form);
+     int insertform(@Param("form") Form form);
 
     //增加密匙
     @Update("UPDATE form SET password = #{password} WHERE formid = #{formid}")
-    public int addpassword(@Param("formid") Integer formid,
+     int addpassword(@Param("formid") Integer formid,
                            @Param("password") String password);
 
     //根据密匙获取信息
     @Select("SELECT * FROM form WHERE password = #{password} LIMIT 1;")
-    public Form getFromByPassword(@Param("password")String password);
+     Form getFromByPassword(@Param("password")String password);
+
+    //根据formid获取title
+    @Select("SELECT title FROM form WHERE formid = #{formid} LIMIT 1;")
+     String getTitleByFormid(@Param("formid")String formid);
+
+    //根据formid获取password
+    @Select("SELECT password FROM form WHERE formid = #{formid} ;")
+    String getPasswordByFormid(@Param("formid")Integer formid);
 }

@@ -44,6 +44,9 @@ public class User {
     //用户等级
     private String grade;
 
+    public User() {
+    }
+
     public User(String openid, String name, String avatar, String gender, String province, String city, String country) {
         this.openid = openid;
         this.name = name;
