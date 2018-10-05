@@ -19,14 +19,72 @@ public class Article {
     private String time;
     //点赞列表
     private String starlist;
+    //标签列表
+    private String tags;
+    //简介
+    private String intro;
+    //链接列表
+    private String link;
+    //头像
+    private String iconurl;
 
-    public Article(Integer id, String title, String content, Integer userid, String time, String starlist) {
+    public Article() {
+    }
+
+    public Article(String title, String content, Integer userid, String time, String tags, String intro, String link, String iconurl) {
+        this.title = title;
+        this.content = content;
+        this.userid = userid;
+        this.time = time;
+        this.tags = tags;
+        this.intro = intro;
+        this.link = link;
+        this.iconurl = iconurl;
+    }
+
+    public Article(Integer id, String title, String content, Integer userid, String time, String starlist, String tags, String intro, String link, String iconurl) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.userid = userid;
         this.time = time;
         this.starlist = starlist;
+        this.tags = tags;
+        this.intro = intro;
+        this.link = link;
+        this.iconurl = iconurl;
+    }
+
+    public String getTags() {
+        return tags;
+    }
+
+    public void setTags(String tags) {
+        this.tags = tags;
+    }
+
+    public String getIntro() {
+        return intro;
+    }
+
+    public void setIntro(String intro) {
+        this.intro = intro;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public String getIconurl() {
+        return iconurl;
+    }
+
+    public void setIconurl(String iconurl) {
+        this.iconurl = iconurl;
     }
 
     public Integer getId() {

@@ -36,7 +36,7 @@ public interface JoinMapper {
     Integer deleteDataById(@Param("id")String id);
 
     //根据formid查找所有人员操作
-    @Select("SELECT userid FROM joinlist WHERE formid = #{formid} ")
+    @Select("SELECT userid FROM joinlist WHERE formid = #{formid} AND isdelete = 0 ")
     List<String> getUseridsById(@Param("formid")Integer formid);
 
 }

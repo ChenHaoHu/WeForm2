@@ -4,6 +4,8 @@ import com.weform.common.request.RequestForm;
 import com.weform.model.Form;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @Auther: 简单DI年华
  * @Date: 18-10-1 12:03
@@ -18,6 +20,8 @@ public interface FormService {
     Form getFormByPassword(String password);
 
     String getFormTitle(Integer formid);
+
+    List getFormByTag(String tag);
 
     String deleForm();
 

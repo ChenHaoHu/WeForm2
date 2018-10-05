@@ -2,6 +2,7 @@ package com.weform.service.user;
 
 import com.weform.mapper.UserMapper;
 import com.weform.model.User;
+import com.weform.service.time.TimeUtil;
 import com.weform.service.wxapi.WxApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,9 @@ public class UserServiceImpl implements UserService {
     //注入WxApi
     @Autowired
     WxApi wxApi;
+    //注入time
+    @Autowired
+    TimeUtil timeUtil;
 
     /**
      * 获取用户的userid，也是验证用户是否已经存在
@@ -56,11 +60,19 @@ public class UserServiceImpl implements UserService {
     @Override
     public Integer addUser(String name,String code,String gender,String avatar,
                            String province,String city,String country) {
+        Integer useidByOpenid = getUseidByOpenid(code);
+        if(useidByOpenid == -1){
+            String openid = wxApi.getOpenid(code);
+            User user =  new User(openid,name,avatar,gender,province,city,country);
+            user.setTime(timeUtil.getNowTime());
+            userMapper.insertUser(user);
+            return user.getuserid();
+        }else{
+            return useidByOpenid;
+        }
 
-        String openid = wxApi.getOpenid(code);
-        User user =  new User(openid,name,avatar,gender,province,city,country);
-        userMapper.insertUser(user);
-        return user.getuserid();
+
+
     }
 
     /**

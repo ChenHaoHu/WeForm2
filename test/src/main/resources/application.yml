@@ -3,7 +3,7 @@ wxapp:
   appsecret: 00e8d5e94cd39adfccceca56a8ec407d
 
 ip:
-  home: http://192.168.1.102:8080/file/
+  home: http://localhost:8080/file/
 
 path:
   excel: E:/excel
@@ -54,3 +54,6 @@ spring:
     static-path-pattern: /file/**
 
 
+logging:
+  level:
+    com.weform.mapper : debug

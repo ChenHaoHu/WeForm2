@@ -1,9 +1,12 @@
 package com.weform.mapper;
 
+import com.weform.model.Article;
 import com.weform.model.Form;
 import io.swagger.models.auth.In;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 /**
  * @Auther: 简单DI年华
@@ -42,4 +45,11 @@ public interface FormMapper {
     //根据formid获取password
     @Select("SELECT password FROM form WHERE formid = #{formid} ;")
     String getPasswordByFormid(@Param("formid")Integer formid);
+
+
+
+    //根据tag查找form
+    @Select("SELECT * FROM form WHERE  tags = #{tag} AND ispublic = 'true' ")
+    List<Form> getFormByTag(@Param("tag")String tag);
+
 }
