@@ -25,7 +25,6 @@ public class WxApiImpl implements WxApi {
     @Override
     public String getOpenid(String code) {
 
-
         String reslut = "none";
 //        DefaultHttpClient httpClient = new DefaultHttpClient();
 //        HttpGet httpGet = new HttpGet("https://api.weixin.qq.com/sns/jscode2session?appid="+ appid +
@@ -45,8 +44,9 @@ public class WxApiImpl implements WxApi {
                     .build();
             Response response = client.newCall(request).execute();
             String str = response.body().string();
+            System.out.println(str);
             JSONObject json= JSON.parseObject(str);
-
+            System.out.println(json);
             reslut = json.getString("openid");
             System.out.println(reslut);
         }catch (Exception e){

@@ -8,6 +8,7 @@ import com.weform.model.Article;
 import com.weform.model.Tag;
 import com.weform.service.article.ArticleService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.apache.ibatis.annotations.Param;
@@ -65,5 +66,26 @@ public class ArticleController {
         Map articleById = articleService.getArticleById(id);
 
         return  new ResponseEntity(RespCode.SUCCESS,articleById);
+    }
+
+
+    @ApiOperation(value = "根据userid获取自己写的文件",notes = "返回list")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType="query",name="userid",dataType="int",required=true,value="用户id",defaultValue="1000"),
+    })
+    @RequestMapping(value="/user/article",method= RequestMethod.GET)
+    public ResponseEntity getArticleByUserid(Integer userid) {
+        List list = articleService.getArticleByUserid(userid);
+        return  new ResponseEntity(RespCode.SUCCESS,list);
+    }
+
+    @ApiOperation(value = "根据分享id赞作品",notes = "返回booean")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType="query",name="id",dataType="int",required=true,value="分享id",defaultValue="1000"),
+    })
+    @RequestMapping(value="/user/article",method= RequestMethod.GET)
+    public ResponseEntity zanArticle(Integer id) {
+            articleService.zanArticle(id);
+        return  new ResponseEntity(RespCode.SUCCESS,true);
     }
 }

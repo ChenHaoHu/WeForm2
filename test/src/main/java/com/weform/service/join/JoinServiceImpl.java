@@ -74,10 +74,23 @@ public class JoinServiceImpl implements JoinService {
     }
 
     @Override
+    public List getJoinlistByUserid(Integer userid) {
+        List list = new ArrayList();
+        List<Join> joinlistByUserid = joinMapper.getJoinlistByUserid(userid);
+        for (int i = 0; i < joinlistByUserid.size(); i++) {
+            Map map = new HashMap();
+            map.put("sign",joinlistByUserid.get(i));
+            map.put("form",formMapper.getFormByFormid(joinlistByUserid.get(i).getFormid()).get(0));
+            list.add(map);
+        }
+        return list;
+    }
+
+    @Override
     public String exportJoinData(Integer formid) {
 
         List<Join> joins = joinMapper.getJoinDataByFormid(formid);
-       String back =  excelUtil.export(joins);
+        String back =  excelUtil.export(joins);
 
         return back;
     }

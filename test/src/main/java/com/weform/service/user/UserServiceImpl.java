@@ -29,6 +29,9 @@ public class UserServiceImpl implements UserService {
     @Autowired
     TimeUtil timeUtil;
 
+
+    String openid = "";
+
     /**
      * 获取用户的userid，也是验证用户是否已经存在
      * @param code
@@ -37,7 +40,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public Integer getUseidByOpenid(String code) {
-        String openid = wxApi.getOpenid(code);
+         openid = wxApi.getOpenid(code);
         Integer[] userid = userMapper.findUseridByOpenid(openid);
         if(userid.length!=1){
             return -1;
@@ -62,7 +65,7 @@ public class UserServiceImpl implements UserService {
                            String province,String city,String country) {
         Integer useidByOpenid = getUseidByOpenid(code);
         if(useidByOpenid == -1){
-            String openid = wxApi.getOpenid(code);
+            System.out.println(openid);
             User user =  new User(openid,name,avatar,gender,province,city,country);
             user.setTime(timeUtil.getNowTime());
             userMapper.insertUser(user);

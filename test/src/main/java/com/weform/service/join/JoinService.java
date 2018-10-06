@@ -1,6 +1,7 @@
 package com.weform.service.join;
 
 import com.weform.model.Join;
+import io.swagger.models.auth.In;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,5 +26,7 @@ public interface JoinService {
     List getUserDataByFormid(Integer formid);
 
     String getJoinPassword(String id);
+
+    List getJoinlistByUserid(Integer userid);
 
 }

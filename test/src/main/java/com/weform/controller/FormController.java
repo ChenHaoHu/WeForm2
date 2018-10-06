@@ -9,11 +9,14 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * @Auther: 简单DI年华
@@ -59,6 +62,7 @@ public class FormController {
     @RequestMapping(value="/find/password",method= RequestMethod.GET)
     public ResponseEntity getFormByPassword(String password) {
 
+        password = password.toUpperCase();
         Form formByPassword = formService.getFormByPassword(password);
 
         return  new ResponseEntity(RespCode.SUCCESS,formByPassword);
@@ -74,5 +78,42 @@ public class FormController {
         String formTitle = formService.getFormTitle(formid);
 
         return  new ResponseEntity(RespCode.SUCCESS,formTitle);
+    }
+
+
+    @ApiOperation(value = "验证表单是否准在",notes = "返回boolean")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType="query",name="password",dataType="string",required=true,value="表单密匙",defaultValue="CHDF"),
+    })
+    @RequestMapping(value="/check",method= RequestMethod.GET)
+    public ResponseEntity checkForm(String password) {
+
+        password = password.toUpperCase();
+
+        boolean b = formService.checkForm(password);
+
+        return  new ResponseEntity(RespCode.SUCCESS,b);
+    }
+
+    @ApiOperation(value = "根据表单title获取password",notes = "返回password")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType="query",name="title",dataType="string",required=true,value="表单标题",defaultValue="test"),
+    })
+    @RequestMapping(value="/password",method= RequestMethod.GET)
+    public ResponseEntity getPasswordByFormTitle(String title) {
+
+        String passwordByFormTitle = formService.getPasswordByFormTitle(title);
+
+        return  new ResponseEntity(RespCode.SUCCESS,passwordByFormTitle);
+    }
+
+    @ApiOperation(value = "根据userid获取自己报名的表单",notes = "返回list")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType="query",name="userid",dataType="int",required=true,value="用户id",defaultValue="1000"),
+    })
+    @RequestMapping(value="/user/build",method= RequestMethod.GET)
+    public ResponseEntity getFormByUserid(Integer userid) {
+        List formByUserid =  formService.getFormByUserid(userid);
+        return  new ResponseEntity(RespCode.SUCCESS,formByUserid);
     }
 }

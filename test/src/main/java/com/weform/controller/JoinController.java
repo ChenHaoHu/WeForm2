@@ -88,4 +88,14 @@ public class JoinController {
         return  new ResponseEntity(RespCode.SUCCESS,back);
     }
 
+    @ApiOperation(value = "根据userid获取报名的表单",notes = "返回list")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType="query",name="userid",dataType="int",required=true,value="用户id",defaultValue="1000"),
+    })
+    @RequestMapping(value="/user/sign",method= RequestMethod.GET)
+    public ResponseEntity getJoinByUserid(Integer userid) {
+        List list = joinService.getJoinlistByUserid(userid);
+        return  new ResponseEntity(RespCode.SUCCESS,list);
+    }
+
 }

@@ -81,7 +81,8 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public List getArticleByTag(String tag) {
-        List<Article> articleByTag = articleMapper.getArticleByTag(tag);
+        String str = "select * from article WHERE JSON_CONTAINS(tags, '[\""+tag+"\"]')";
+        List<Article> articleByTag = articleMapper.getArticleByTag(str);
         List<Map> back = new ArrayList<>();
         for (int i = 0; i < articleByTag.size(); i++) {
             Integer userid = articleByTag.get(i).getUserid();
@@ -93,9 +94,35 @@ public class ArticleServiceImpl implements ArticleService {
             map.put("intro",articleByTag.get(i).getIntro());
             map.put("icon",articleByTag.get(i).getIconurl());
             map.put("id",articleByTag.get(i).getId());
-            map.put("type","article");
+            map.put("time",articleByTag.get(i).getTime());
+            map.put("type","分享");
             back.add(map);
         }
         return back;
+    }
+
+    @Override
+    public Integer getNum() {
+        Integer articleNum = articleMapper.getArticleNum();
+        return articleNum;
+    }
+
+    @Override
+    public List getExcellentArticle(Integer level) {
+        List excellentArticleByLevel = articleMapper.getExcellentArticleByLevel(level);
+        return excellentArticleByLevel;
+    }
+
+
+    @Override
+    public List getArticleByUserid(Integer userid) {
+        List articleByUserid = articleMapper.getArticleByUserid(userid);
+        return articleByUserid;
+    }
+
+    @Override
+    public boolean zanArticle(Integer id) {
+        articleMapper.updateZanNum(id);
+        return true;
     }
 }

@@ -1,6 +1,7 @@
 wxapp:
   appid: wx4f4a31c69f79cd6e
-  appsecret: 00e8d5e94cd39adfccceca56a8ec407d
+  appsecret: a5cc69b21bfe0ce57d21f82658effdd4
+
 
 ip:
   home: http://localhost:8080/file/
@@ -38,12 +39,12 @@ spring:
     port: 6379
 
 
-#server:
-#  port: 443
-#  ssl:
-#    key-store: classpath:214955576050011.pfx
-#    key-store-password: 214955576050011
-#    key-store-type: PKCS12
+  #server:
+  #  port: 443
+  #  ssl:
+  #    key-store: classpath:214955576050011.pfx
+  #    key-store-password: 214955576050011
+  #    key-store-type: PKCS12
   server:
     port: 8080
   tomcat:

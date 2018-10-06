@@ -5,6 +5,7 @@ import com.weform.model.Form;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Auther: 简单DI年华
@@ -26,4 +27,12 @@ public interface FormService {
     String deleForm();
 
     String editForm();
+
+    boolean checkForm(String password);
+
+    Map getNum();
+
+    String getPasswordByFormTitle(String title);
+
+    List getFormByUserid(Integer useid);
 }

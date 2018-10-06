@@ -1,7 +1,6 @@
 package com.weform.mapper;
 
 import com.weform.model.Article;
-import com.weform.model.Tag;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Component;
 
@@ -29,6 +28,30 @@ public interface ArticleMapper {
     Article getArticleById(@Param("id")Integer id);
 
     //根据tag查找文章
-    @Select("#{tag}")
+
+    /**
+     * 这个方法是有问题的
+     * 但是可以使用
+     * 因为select * from article WHERE JSON_CONTAINS(tags, '["教育"]'这个语句存在单引号
+     * 和双引号，直接常规写法无法实现查找，因为项目太赶，出此下策
+     */
+    @Select("${tag}")
     List<Article> getArticleByTag(@Param("tag")String tag);
+
+    //查找article数量
+    @Select("SELECT COUNT(*) FROM article  ")
+    Integer getArticleNum();
+
+    //查找点赞数量超过 level 的分享
+    @Select("SELECT * FROM article WHERE  stars > #{level} ORDER BY stars ")
+    List<Article> getExcellentArticleByLevel(@Param("level")Integer level);
+
+    //根据userid查询文章
+    @Select("SELECT * FROM article WHERE  userid = #{userid} ;")
+    List<Article> getArticleByUserid(@Param("userid") Integer userid);
+
+    //分享赞数目加一
+    @Update("UPDATE article SET stars = stars +1 WHERE id = #{id};")
+    void updateZanNum(Integer id);
+
 }

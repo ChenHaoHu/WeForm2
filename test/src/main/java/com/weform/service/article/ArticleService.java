@@ -1,6 +1,7 @@
 package com.weform.service.article;
 
 import com.weform.model.Article;
+import io.swagger.models.auth.In;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -25,5 +26,13 @@ public interface ArticleService {
                        String link,String iconurl);
 
     List getArticleByTag(String tag);
+
+    Integer getNum();
+
+    List getExcellentArticle(Integer level);
+
+    List getArticleByUserid(Integer userid);
+
+    boolean zanArticle(Integer id);
 
 }

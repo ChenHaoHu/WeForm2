@@ -18,7 +18,7 @@ public class Article {
     //创建时间
     private String time;
     //点赞列表
-    private String starlist;
+    private Integer stars;
     //标签列表
     private String tags;
     //简介
@@ -42,13 +42,13 @@ public class Article {
         this.iconurl = iconurl;
     }
 
-    public Article(Integer id, String title, String content, Integer userid, String time, String starlist, String tags, String intro, String link, String iconurl) {
+    public Article(Integer id, String title, String content, Integer userid, String time, Integer stars, String tags, String intro, String link, String iconurl) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.userid = userid;
         this.time = time;
-        this.starlist = starlist;
+        this.stars = stars;
         this.tags = tags;
         this.intro = intro;
         this.link = link;
@@ -127,11 +127,11 @@ public class Article {
         this.time = time;
     }
 
-    public String getStarlist() {
-        return starlist;
+    public Integer getstars() {
+        return stars;
     }
 
-    public void setStarlist(String starlist) {
-        this.starlist = starlist;
+    public void setstars(Integer stars) {
+        this.stars = stars;
     }
 }

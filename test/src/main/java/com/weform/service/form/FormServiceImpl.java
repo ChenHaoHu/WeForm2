@@ -83,19 +83,21 @@ public class FormServiceImpl implements FormService {
     @Override
     public List getFormByTag(String tag) {
 
-        List<Form> articleByTag = formMapper.getFormByTag(tag);
+        List<Form> formByTag = formMapper.getFormByTag(tag);
         List<Map> back = new ArrayList<>();
-        for (int i = 0; i < articleByTag.size(); i++) {
-            Integer userid = articleByTag.get(i).getUserid();
+        for (int i = 0; i < formByTag.size(); i++) {
+            Integer userid = formByTag.get(i).getUserid();
             User userByUserid = userMapper.findUserByUserid(userid + "");
             Map map = new HashMap();
             map.put("username",userByUserid.getName());
             map.put("usericon",userByUserid.getAvatar());
-            map.put("title",articleByTag.get(i).getTitle());
-            map.put("intro",articleByTag.get(i).getIntro());
-            map.put("icon",articleByTag.get(i).getIconurl());
-            map.put("id",articleByTag.get(i).getFormid());
-            map.put("type","form");
+            map.put("title",formByTag.get(i).getTitle());
+            map.put("intro",formByTag.get(i).getIntro());
+            map.put("icon",formByTag.get(i).getIconurl());
+            //这里把表单的密匙当作id传，便于前端处理
+            map.put("id",formByTag.get(i).getPassword());
+            map.put("time",formByTag.get(i).getCreatetime());
+            map.put("type","表单");
             back.add(map);
         }
 
@@ -110,5 +112,40 @@ public class FormServiceImpl implements FormService {
     @Override
     public String editForm() {
         return null;
+    }
+
+    @Override
+    public boolean checkForm(String password) {
+        Form fromByPassword = formMapper.getFromByPassword(password);
+
+        if(fromByPassword == null){
+            return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public Map getNum() {
+        Integer form = formMapper.getFormNum();
+        Integer activity = formMapper.getAvtivityNum();
+        Map map = new HashMap();
+        map.put("form",form);
+        map.put("activity",activity);
+
+        return map;
+    }
+
+    @Override
+    public String getPasswordByFormTitle(String title) {
+        String passwordByFormTitle = formMapper.getPasswordByFormTitle(title);
+
+        return passwordByFormTitle;
+    }
+
+    @Override
+    public List getFormByUserid(Integer useid) {
+        List<Form> formByUserid = formMapper.getFormByUserid(useid);
+        return formByUserid;
     }
 }

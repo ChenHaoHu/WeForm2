@@ -27,10 +27,9 @@ public class ArticleServiceImplTest {
     @Test
     public void getArticleByTag() {
 
-
-        String str = "select * from article WHERE JSON_CONTAINS(tags, '[\"教育\"]')";
-        List data = articleService.getArticleByTag(str);
-        System.out.println(data.toString());
+//
+//        List data = articleService.getArticleByTag(str);
+//        System.out.println(data.toString());
 
 
     }

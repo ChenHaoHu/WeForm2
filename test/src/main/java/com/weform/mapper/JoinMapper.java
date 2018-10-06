@@ -1,5 +1,6 @@
 package com.weform.mapper;
 
+import com.weform.model.Form;
 import com.weform.model.Join;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Component;
@@ -38,5 +39,10 @@ public interface JoinMapper {
     //根据formid查找所有人员操作
     @Select("SELECT userid FROM joinlist WHERE formid = #{formid} AND isdelete = 0 ")
     List<String> getUseridsById(@Param("formid")Integer formid);
+
+
+    //根据userid查询自己报名的表单
+    @Select("SELECT * FROM joinlist WHERE  userid = #{userid} AND isdelete = 0 ;")
+    List<Join> getJoinlistByUserid(@Param("userid") Integer userid);
 
 }

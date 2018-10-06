@@ -22,7 +22,7 @@ public class Form {
     //表单结束报名时间
     private String end;
     //表单创建时间
-    private String create;
+    private String createtime;
     //表单最大报名人数
     private Integer maxnum;
     //表单的简介
@@ -33,8 +33,8 @@ public class Form {
     private String docurl;
     //表单进去的密匙
     private String password;
-    //点赞用户id列表  ['1000','1001','1003']
-    private String starlist;
+    //点赞数
+    private String stars;
     //表单的海报轮播 可以有数个 ['/porter/1000(id)/test.doc','/doc/1000(id)/test.doc']
     private String posterurl;
     //签到表的id 如果没有就为 -1
@@ -49,14 +49,14 @@ public class Form {
     public Form() {
     }
 
-    public Form(Integer userid, String title, String type, String mode, String start, String end, String create, Integer maxnum, String intro, String iconurl, String posterurl, String ispublic, String username, String tags) {
+    public Form(Integer userid, String title, String type, String mode, String start, String end, String createtime, Integer maxnum, String intro, String iconurl, String posterurl, String ispublic, String username, String tags) {
         this.userid = userid;
         this.title = title;
         this.type = type;
         this.mode = mode;
         this.start = start;
         this.end = end;
-        this.create = create;
+        this.createtime = createtime;
         this.maxnum = maxnum;
         this.intro = intro;
         this.iconurl = iconurl;
@@ -66,7 +66,7 @@ public class Form {
         this.tags = tags;
     }
 
-    public Form(Integer formid, Integer userid, String title, String type, String mode, String start, String end, String create, Integer maxnum, String intro, String iconurl, String docurl, String password, String starlist, String posterurl, Integer signid) {
+    public Form(Integer formid, Integer userid, String title, String type, String mode, String start, String end, String createtime, Integer maxnum, String intro, String iconurl, String docurl, String password, String stars, String posterurl, Integer signid) {
         this.formid = formid;
         this.userid = userid;
         this.title = title;
@@ -74,13 +74,13 @@ public class Form {
         this.mode = mode;
         this.start = start;
         this.end = end;
-        this.create = create;
+        this.createtime = createtime;
         this.maxnum = maxnum;
         this.intro = intro;
         this.iconurl = iconurl;
         this.docurl = docurl;
         this.password = password;
-        this.starlist = starlist;
+        this.stars = stars;
         this.posterurl = posterurl;
         this.signid = signid;
     }
@@ -141,12 +141,12 @@ public class Form {
         this.end = end;
     }
 
-    public String getCreate() {
-        return create;
+    public String getCreatetime() {
+        return createtime;
     }
 
-    public void setCreate(String create) {
-        this.create = create;
+    public void setCreatetime(String createtime) {
+        this.createtime = createtime;
     }
 
     public Integer getMaxnum() {
@@ -189,12 +189,12 @@ public class Form {
         this.password = password;
     }
 
-    public String getStarlist() {
-        return starlist;
+    public String getStars() {
+        return stars;
     }
 
-    public void setStarlist(String starlist) {
-        this.starlist = starlist;
+    public void setStars(String stars) {
+        this.stars = stars;
     }
 
     public String getPosterurl() {
