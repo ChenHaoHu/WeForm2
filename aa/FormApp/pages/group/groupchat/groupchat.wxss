@@ -1,0 +1,76 @@
+.tabbar {
+  width: 100%;
+  text-align: center;
+  font-size: 35rpx;
+  padding-top: 20rpx;
+  color: #999;
+}
+
+.groupdata {
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+  border-radius: 10rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  background-color: #f81344;
+  color: white;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0rpx;
+  width: 100%;
+  height: 120rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: rgba(255, 255, 255, 0.432);
+  border-top-left-radius: 30rpx;
+  border-top-right-radius: 30rpx;
+  /* border-top: 2rpx solid #777; */
+}
+
+.but1 {
+  width: 50%;
+  height: 96rpx;
+  background: linear-gradient(#00a4ff, #00a4ff);
+  color: white;
+  font-weight: 900;
+  font-size: 40rpx;
+  text-align: center;
+  line-height: 96rpx;
+  border-radius: 20rpx;
+}
+
+.but2 {
+  width: 30%;
+  height: 96rpx;
+  background: linear-gradient(#00a4ff, #00a4ff);
+  color: white;
+  font-weight: 900;
+  font-size: 40rpx;
+  text-align: center;
+  line-height: 96rpx;
+  border-radius: 20rpx;
+}
+
+.message {
+  /* background: linear-gradient(#00a4ff, #ffb93f); */
+  opacity: 0.8;
+  border-radius: 30rpx;
+  width: 96%;
+  margin-left: 2%;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  color: white;
+}
+
+.getmessage {
+  width: 100%;
+  font-size: 50rpx;
+  border-top: 1rpx solid #999;
+  text-align: center;
+  color: rgba(29, 64, 138, 0.596);
+  font-weight: 900;
+}

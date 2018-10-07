@@ -1,0 +1,44 @@
+textarea {
+  width: 96%;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 20rpx;
+  text-align: justify;
+  min-height: 600rpx;
+  font-size: 0.8em;
+}
+
+.link, .tag {
+  padding: 30rpx;
+  padding-left: 30rpx;
+  font-size: 30rpx;
+}
+
+.add {
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  border: 2rpx solid #666;
+  border-radius: 10rpx;
+}
+
+.box {
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+}
+
+image {
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+  width: 160rpx;
+  height: 160rpx;
+}
+
+
+.but{
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
+  background-color: #00a4ff;
+  color: white;
+}

@@ -1,0 +1,11 @@
+{
+"usingComponents": {
+  "i-button": "../../dist/button/index",
+  "i-steps": "../../dist/steps/index",
+  "i-step": "../../dist/step/index",
+  "i-tabs": "../../dist/tabs/index",
+  "i-tab": "../../dist/tab/index",
+  "i-tag": "../../dist/tag/index"
+},
+"enablePullDownRefresh": true
+}

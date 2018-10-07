@@ -1,0 +1,40 @@
+<view class="page" animation="{{an}}">
+  <view class='notice'>
+    <view>已经创建：100</view>
+  </view>
+  <view class='body'>
+    <view class='list item' bindtap='buildquestionnaire'>
+      <view class='itemimg1'>
+        <image src='../../img/addimg/list.png' mode='aspectFit'> </image>
+      </view>
+      <view>表单创建</view>
+    </view>
+    <view class='activity item' bindtap='buildactivity'>
+      <view class='itemimg2'>
+        <image src='../../img/addimg/activity.png' mode='aspectFit'> </image>
+      </view>
+      <view>活动创建</view>
+    </view>
+    <view class='article item' bindtap='buildarticle'>
+      <view class='itemimg3'>
+        <image src='../../img/addimg/article.png' mode='aspectFit'> </image>
+      </view>
+      <view>文章投稿</view>
+    </view>
+
+     <view class='excel item'   bindtap='buildquestionnaire'>
+      <view class='itemimg4'>
+        <image src='../../img/addimg/article.png' mode='aspectFit'> </image>
+      </view>
+      <view>共建文档</view>
+    </view>
+
+    
+     <view class='excel item'   bindtap='topassword'>
+      <view class='itemimg5'>
+        <image src='../../img/addimg/password.png' mode='aspectFit'> </image>
+      </view>
+      <view>输入密匙</view>
+    </view>
+  </view>
+</view>

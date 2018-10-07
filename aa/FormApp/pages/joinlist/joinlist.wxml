@@ -1,0 +1,18 @@
+<view class='top'>
+<view class='title'>标题：{{title}}</view>
+<view class='num'>已经报名人数：{{list.length}}人</view>
+</view>
+
+<view class="main">
+<block wx:for="{{list}}" wx:key>
+  <view class='item'>
+    <view>
+      <image src='{{item.iconurl}}' mode='aspectFill'></image>
+    </view>
+    <view class="name">
+      {{item.name}}
+    </view>
+  </view>
+</block>
+
+</view>

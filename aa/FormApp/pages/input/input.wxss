@@ -1,0 +1,50 @@
+.all{
+  font-size: 30rpx;
+}
+
+.input{
+  display: flex;
+  flex-direction: row;
+  height: 80rpx;
+  line-height: 80rpx;
+
+}
+
+input{
+    height: 80rpx;
+  line-height: 80rpx;
+
+}
+
+.input .text{
+  width: 20%;
+  padding-left: 20rpx;
+  line-height: 80rpx;
+}
+radio-group,checkbox-group{
+  width: 90%;
+  margin-left: 5%;
+  display: flex;
+  flex-direction: column;
+  font-size: 30rpx;
+}
+
+label{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10rpx;
+}
+
+.title{
+  width: 100%;
+  text-align: center;
+  margin-top: 30rpx;
+}
+.sublimt{
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 40rpx;
+  background-color: #00a4ff;
+  color: white;
+}

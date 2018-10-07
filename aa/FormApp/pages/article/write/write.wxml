@@ -1,0 +1,33 @@
+<i-panel title="文章属性">
+  <i-input  title="标题" autofocus placeholder="名字"  id='title' bind:change="changinput" />
+  <i-input  title="简介" autofocus placeholder="文章简单介绍" 
+  id='intro' bind:change="changinput"/>
+</i-panel>
+<i-panel title="文章标签">
+  <view class='tag'>
+    <block wx:for="{{tag}}" wx:key>
+      <text data-name='{{item}}' bindtap='deleteTag'>{{item}}  </text>
+      <icon type='cancel' color="red" data-name='{{item}}' bindtap='deleteTag'></icon>、
+    </block>
+    <text class='add' bindtap='addtag'>+</text>
+  </view>
+</i-panel>
+<i-panel title="文章绑定表单">
+  <view class='link'>
+    <block wx:for="{{link}}" wx:key>
+      <text data-name='{{item.title}}' bindtap='deleteLink'>{{item.title}}  </text>
+      <icon type='cancel' color="red" data-name='{{item.title}}' bindtap='deleteLink'></icon>、
+    </block>
+    <text class='add' bindtap='addlink'>+</text>
+  </view>
+</i-panel>
+<i-panel title="文章配图">
+<image src='{{iconurl}}' wx:if="{{iconurl.length != 0}}" bindtap="chooseIconImage"></image>
+  <view class="weui-uploader__input-box box" bindtap="chooseIconImage" wx:else></view>
+</i-panel>
+<i-panel title="文章内容">
+  <textarea maxlength="-1" auto-height bindinput='changinput' id='content'>
+  </textarea>
+</i-panel>
+
+<button class='but' bindtap='add'>提交</button>

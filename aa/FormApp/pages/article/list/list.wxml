@@ -1,0 +1,6 @@
+<i-cell-group>
+  <block wx:for="{{list}}"  wx:key >
+    <i-cell title="{{item.title}}" is-link id="{{item.id}}" bind:click="select"   wx:if="{{type == 'tag'}}"></i-cell>
+        <i-cell title="{{item.title}}" is-link id="{{item.title}}^{{item.id}}" bind:click="select"   wx:if="{{type == 'link'}}"></i-cell>
+  </block>
+</i-cell-group>

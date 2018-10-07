@@ -1,0 +1,119 @@
+.page {
+  position: absolute;
+  width: 100%;
+  height: 1300rpx;
+  background: #00a4ff;
+}
+
+.notice {
+  color: white;
+  font-size: 60rpx;
+  font-weight: 600;
+  margin-left: 50rpx;
+  padding-top: 20rpx;
+}
+
+.body {
+  width: 90%;
+  /* height: 1500rpx; */
+  margin-top: 20rpx;
+  padding-bottom: 200rpx;
+  background-color: rgba(255, 255, 255, 0.822);
+  margin-left: 5%;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.item {
+  width: 160rpx;
+  height: 200rpx;
+  margin-top: 30rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: black;
+}
+
+.itemimg1 {
+  width: 160rpx;
+  height: 160rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; /*垂直居中*/
+  background-color: rebeccapurple;
+  border-radius: 50%;
+}
+
+.itemimg1 image {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.itemimg2 {
+  width: 160rpx;
+  height: 160rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; /*垂直居中*/
+  background-color: rgb(187, 255, 0);
+  border-radius: 50%;
+}
+
+.itemimg2 image {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.itemimg3 {
+  width: 160rpx;
+  height: 160rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; /*垂直居中*/
+  background-color: orange;
+  border-radius: 50%;
+}
+
+.itemimg3 image {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.itemimg4 {
+  width: 160rpx;
+  height: 160rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; /*垂直居中*/
+  background-color: rgb(7, 253, 171);
+  border-radius: 50%;
+}
+
+.itemimg4 image {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.itemimg5 {
+  width: 160rpx;
+  height: 160rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; /*垂直居中*/
+  background-color: rgb(253, 30, 30);
+  border-radius: 50%;
+}
+
+.itemimg5 image {
+  width: 100rpx;
+  height: 100rpx;
+}

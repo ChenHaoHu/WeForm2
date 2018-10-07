@@ -83,7 +83,7 @@ public class ArticleController {
     @ApiImplicitParams({
             @ApiImplicitParam(paramType="query",name="id",dataType="int",required=true,value="分享id",defaultValue="1000"),
     })
-    @RequestMapping(value="/user/article",method= RequestMethod.GET)
+    @RequestMapping(value="/zan",method= RequestMethod.GET)
     public ResponseEntity zanArticle(Integer id) {
             articleService.zanArticle(id);
         return  new ResponseEntity(RespCode.SUCCESS,true);
