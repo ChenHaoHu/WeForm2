@@ -11,12 +11,14 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.models.auth.In;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -85,7 +87,22 @@ public class ArticleController {
     })
     @RequestMapping(value="/zan",method= RequestMethod.GET)
     public ResponseEntity zanArticle(Integer id) {
-            articleService.zanArticle(id);
+        articleService.zanArticle(id);
         return  new ResponseEntity(RespCode.SUCCESS,true);
+    }
+
+    @ApiOperation(value = "分页查找分享数据",notes = "返回集合")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType="query",name="pageSize",dataType="int",required=true,value="查询大小",defaultValue="1"),
+            @ApiImplicitParam(paramType="query",name="pageNum",dataType="int",required=true,value="查询页码",defaultValue="2"),
+    })
+    @RequestMapping(value="/page",method= RequestMethod.GET)
+    public ResponseEntity getArticleByPages(Integer pageSize,Integer pageNum) {
+        List<Article> articleByPage = articleService.getArticleByPage( pageSize, pageNum);
+       Map map = new HashMap();
+       map.put("data",articleByPage);
+       map.put("pageNum",pageNum);
+        map.put("pageSize",articleByPage.size());
+        return  new ResponseEntity(RespCode.SUCCESS,map);
     }
 }

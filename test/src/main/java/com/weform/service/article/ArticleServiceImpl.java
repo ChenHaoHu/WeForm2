@@ -2,6 +2,7 @@ package com.weform.service.article;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
+import com.github.pagehelper.PageHelper;
 import com.weform.mapper.ArticleMapper;
 import com.weform.mapper.TagMapper;
 import com.weform.mapper.UserMapper;
@@ -41,8 +42,10 @@ public class ArticleServiceImpl implements ArticleService {
     TimeUtil timeUtil;
 
     @Override
-    public List<Article> getAllArticle() {
-        return null;
+    public List<Article> getArticleByPage(Integer pageSize,Integer pageNum) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<Article> allArticle = articleMapper.getAllArticle();
+        return allArticle;
     }
 
     @Override
@@ -95,7 +98,7 @@ public class ArticleServiceImpl implements ArticleService {
             map.put("icon",articleByTag.get(i).getIconurl());
             map.put("id",articleByTag.get(i).getId());
             map.put("time",articleByTag.get(i).getTime());
-            map.put("type","分享");
+            map.put("type","share");
             back.add(map);
         }
         return back;

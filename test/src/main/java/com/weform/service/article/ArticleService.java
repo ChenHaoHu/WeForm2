@@ -18,7 +18,7 @@ import java.util.Map;
 @Service
 public interface ArticleService {
 
-    List<Article> getAllArticle();
+    List<Article> getArticleByPage(Integer pageSize,Integer pageNum);
 
     Map getArticleById(Integer id);
 

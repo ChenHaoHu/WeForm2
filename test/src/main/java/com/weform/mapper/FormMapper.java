@@ -62,15 +62,24 @@ public interface FormMapper {
     Integer getFormNum();
 
     //查找avtivity数量
-    @Select("SELECT COUNT(*) FROM form WHERE type = 'avtivity' ")
+    @Select("SELECT COUNT(*) FROM form WHERE type = 'activity' ")
     Integer getAvtivityNum();
 
-    //根据formtitle获取password
-    @Select("SELECT password FROM form WHERE title = #{title} LIMIT 1;")
-    String getPasswordByFormTitle(@Param("title")String title);
+    //根据formid获取password
+    @Select("SELECT password FROM form WHERE formid = #{formid} LIMIT 1;")
+    String getPasswordByFormId(@Param("formid")Integer formid);
 
     //根据userid查询自己创建的表单
     @Select("SELECT * FROM form WHERE  userid = #{userid};")
     List<Form> getFormByUserid(@Param("userid") Integer userid);
+
+    //获取所有公开的Activity
+    @Select("SELECT * FROM form WHERE ispublic = 'true' AND type = 'activity' ")
+    List<Form> getAllActivity();
+
+    //获取所有公开的调查问卷
+    @Select("SELECT * FROM form WHERE ispublic = 'true' AND type = 'form' ")
+    List<Form> getAllForm();
+
 
 }

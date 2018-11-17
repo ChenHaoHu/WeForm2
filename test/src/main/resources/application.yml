@@ -2,13 +2,12 @@ wxapp:
   appid: wx4f4a31c69f79cd6e
   appsecret: a5cc69b21bfe0ce57d21f82658effdd4
 
-
 ip:
-  home: http://localhost:8080/file/
+  home: https://www.hcyang.top/file/
 
 path:
-  excel: E:/excel
-  images: E:/images/
+  excel: /file/excel
+  images: /file/images/
 
 spring:
   datasource:
@@ -39,22 +38,27 @@ spring:
     port: 6379
 
 
-  #server:
-  #  port: 443
-  #  ssl:
-  #    key-store: classpath:214955576050011.pfx
-  #    key-store-password: 214955576050011
-  #    key-store-type: PKCS12
-  server:
-    port: 8080
+
+#  server:
+#    port: 8090
   tomcat:
     max-http-post-size: 10485760000
   resources:
-    static-locations: file:E://
+    static-locations: file:/file
   mvc:
     static-path-pattern: /file/**
+
+#server:
+#  port: 443
+#  ssl:
+#    key-store: classpath:214576818110011.pfx
+#    key-store-password: 214576818110011
+#    key-store-type: PKCS12
+
 
 
 logging:
   level:
     com.weform.mapper : debug
+server:
+  port: 8080

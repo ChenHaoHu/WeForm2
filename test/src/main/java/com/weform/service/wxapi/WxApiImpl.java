@@ -26,17 +26,6 @@ public class WxApiImpl implements WxApi {
     public String getOpenid(String code) {
 
         String reslut = "none";
-//        DefaultHttpClient httpClient = new DefaultHttpClient();
-//        HttpGet httpGet = new HttpGet("https://api.weixin.qq.com/sns/jscode2session?appid="+ appid +
-//                "&secret="+appsecret+"&js_code="+code+"&grant_type=authorization_code");
-//        try{
-//            HttpResponse httpResponse =  httpClient.execute(httpGet);
-//            HttpEntity httpEntity = httpResponse.getEntity();
-//            reslut = EntityUtils.toString(httpEntity);
-//        }catch (Exception e){
-//            System.out.println(e.getStackTrace());
-//        }
-        //使用okhttp
         try {
             OkHttpClient client = new OkHttpClient();
             Request request = new Request.Builder()

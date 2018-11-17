@@ -2,6 +2,7 @@ package com.weform.service.form;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.github.pagehelper.PageHelper;
 import com.weform.common.request.RequestForm;
 import com.weform.mapper.FormMapper;
 import com.weform.mapper.UserMapper;
@@ -97,7 +98,7 @@ public class FormServiceImpl implements FormService {
             //这里把表单的密匙当作id传，便于前端处理
             map.put("id",formByTag.get(i).getPassword());
             map.put("time",formByTag.get(i).getCreatetime());
-            map.put("type","表单");
+            map.put("type",formByTag.get(i).getType());
             back.add(map);
         }
 
@@ -137,15 +138,30 @@ public class FormServiceImpl implements FormService {
     }
 
     @Override
-    public String getPasswordByFormTitle(String title) {
-        String passwordByFormTitle = formMapper.getPasswordByFormTitle(title);
+    public String getPasswordByFormId(Integer formid) {
+        String passwordByFormId = formMapper.getPasswordByFormId(formid);
 
-        return passwordByFormTitle;
+        return passwordByFormId;
     }
 
     @Override
     public List getFormByUserid(Integer useid) {
         List<Form> formByUserid = formMapper.getFormByUserid(useid);
         return formByUserid;
+    }
+
+    @Override
+    public List getFormByPage(Integer pageSize, Integer pageNum) {
+
+        PageHelper.startPage(pageNum, pageSize);
+        List<Form> allForm = formMapper.getAllForm();
+        return allForm;
+    }
+
+    @Override
+    public List getActivityByPage(Integer pageSize, Integer pageNum) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<Form> allActivity = formMapper.getAllActivity();
+        return allActivity;
     }
 }

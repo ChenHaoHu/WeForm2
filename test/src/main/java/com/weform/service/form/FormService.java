@@ -32,7 +32,11 @@ public interface FormService {
 
     Map getNum();
 
-    String getPasswordByFormTitle(String title);
+    String getPasswordByFormId(Integer formid);
 
     List getFormByUserid(Integer useid);
+
+    List getFormByPage(Integer pageSize,Integer pageNum);
+
+    List getActivityByPage(Integer pageSize,Integer pageNum);
 }

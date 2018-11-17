@@ -3,6 +3,7 @@ package com.weform.controller;
 import com.weform.common.request.RequestForm;
 import com.weform.common.response.RespCode;
 import com.weform.common.response.ResponseEntity;
+import com.weform.model.Article;
 import com.weform.model.Form;
 import com.weform.service.form.FormService;
 import io.swagger.annotations.Api;
@@ -16,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Auther: 简单DI年华
@@ -95,16 +98,16 @@ public class FormController {
         return  new ResponseEntity(RespCode.SUCCESS,b);
     }
 
-    @ApiOperation(value = "根据表单title获取password",notes = "返回password")
+    @ApiOperation(value = "根据表单formid获取password",notes = "返回password")
     @ApiImplicitParams({
-            @ApiImplicitParam(paramType="query",name="title",dataType="string",required=true,value="表单标题",defaultValue="test"),
+            @ApiImplicitParam(paramType="query",name="formid",dataType="int",required=true,value="表单id",defaultValue="test"),
     })
     @RequestMapping(value="/password",method= RequestMethod.GET)
-    public ResponseEntity getPasswordByFormTitle(String title) {
+    public ResponseEntity getPasswordByFormTitle(Integer formid) {
 
-        String passwordByFormTitle = formService.getPasswordByFormTitle(title);
+        String passwordByFormId = formService.getPasswordByFormId(formid);
 
-        return  new ResponseEntity(RespCode.SUCCESS,passwordByFormTitle);
+        return  new ResponseEntity(RespCode.SUCCESS,passwordByFormId);
     }
 
     @ApiOperation(value = "根据userid获取自己报名的表单",notes = "返回list")
@@ -116,4 +119,35 @@ public class FormController {
         List formByUserid =  formService.getFormByUserid(userid);
         return  new ResponseEntity(RespCode.SUCCESS,formByUserid);
     }
+
+    @ApiOperation(value = "分页查找表单数据",notes = "返回集合")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType="query",name="pageSize",dataType="int",required=true,value="查询大小",defaultValue="1"),
+            @ApiImplicitParam(paramType="query",name="pageNum",dataType="int",required=true,value="查询页码",defaultValue="2"),
+    })
+    @RequestMapping(value="/form/page",method= RequestMethod.GET)
+    public ResponseEntity geFormByPages(Integer pageSize,Integer pageNum) {
+        List<Form> formByPage = formService.getFormByPage( pageSize, pageNum);
+        Map map = new HashMap();
+        map.put("data",formByPage);
+        map.put("pageNum",pageNum);
+        map.put("pageSize",formByPage.size());
+        return  new ResponseEntity(RespCode.SUCCESS,map);
+    }
+
+    @ApiOperation(value = "分页查找活动数据",notes = "返回集合")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType="query",name="pageSize",dataType="int",required=true,value="查询大小",defaultValue="1"),
+            @ApiImplicitParam(paramType="query",name="pageNum",dataType="int",required=true,value="查询页码",defaultValue="2"),
+    })
+    @RequestMapping(value="/activity/page",method= RequestMethod.GET)
+    public ResponseEntity getActivitryByPages(Integer pageSize,Integer pageNum) {
+        List<Form> activityByPage = formService.getActivityByPage( pageSize, pageNum);
+        Map map = new HashMap();
+        map.put("data",activityByPage);
+        map.put("pageNum",pageNum);
+        map.put("pageSize",activityByPage.size());
+        return  new ResponseEntity(RespCode.SUCCESS,map);
+    }
+
 }

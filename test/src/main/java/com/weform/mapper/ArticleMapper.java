@@ -38,6 +38,11 @@ public interface ArticleMapper {
     @Select("${tag}")
     List<Article> getArticleByTag(@Param("tag")String tag);
 
+    //查找所有Article
+    @Select("SELECT * FROM article")
+    List<Article> getAllArticle();
+
+
     //查找article数量
     @Select("SELECT COUNT(*) FROM article  ")
     Integer getArticleNum();
