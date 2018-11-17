@@ -1,7 +1,8 @@
-Page({
+const api = require('../../api.js');
 
+Page({
   data: {
-    current:0,
+    current: 0,
     intro: {
       value: "",
       length: "0"
@@ -10,43 +11,55 @@ Page({
       'http://p17.qhimg.com/bdm/720_444_0/t01e207d09a4bc31c9f.jpg',
       'http://p18.qhimg.com/bdm/360_222_0/t011ef720af7c32ffb1.jpg'
     ],
-    password: {
-      inputvalue: "",
-      value: []
-    },
-    sendrepeat: true,
-    groupselect: true,
-    date: '点击设置时间',
-
+    password: "",
+    tags: ['运动', '教育'],
+    ispublic: true,
     compstatue: [1, 1, 1],
     showselect: false,
     listitem: [{
       type: "输入框",
-      text: "输入框",
-      id: "1"
-   },
-    // {
-    //   type: "单选框",
-    //   text: "dasdsa",
-    //   selects: [{
-    //     id: "1&01",
-    //     text: ""
-    //   }],
-    //   id: "1",
-    //   statue: 1
-    // },
-    // {
-    //   type: "多选框",
-    //   text: "",
-    //   selects: [{
-    //     id: "1&01",
-    //     text: ""
-    //   }],
-    //   id: "1",
-    //   statue: 1
-    // }
-    ],
+      text: "姓名",
+      id: 1
+    }],
+    time: {
+      start: ['开始日期', '开始时间'],
+      end: ['结束时间', '结束时间']
+    },
+    detail: {
+      title: "",
+      userid: "",
+      username: "",
+      type: "",
+      intro: "",
+      mode: "",
+      start: "点击设置时间",
+      end: "点击设置时间",
+      maxnum: "",
+      iconurl: "",
+      posterurl: [],
+      ispublic: "",
+      tags: '教育'
+    }
 
+  },
+
+  onLoad(option) {
+    var that = this
+    wx.request({
+      url: api.getAllTags,
+      success: function (res) {
+        console.log(res)
+        var temp = [];
+
+        for (var i = 0; i < res.data.data.length; i++) {
+          temp.push(res.data.data[i].name)
+        }
+        that.setData({
+          tags: temp
+        });
+
+      }
+    })
   },
   edittitle: function (e) {
     var that = this;
@@ -406,20 +419,99 @@ Page({
     });
   },
   preview: function () {
-    this.setData({
-      current: 2
-    });
+
+
+    var userid = wx.getStorageSync("user").userid;
+    if (userid == undefined) {
+      wx.showModal({
+        title: '温馨提示',
+        content: '用户暂未登录,请进入首页登录',
+        showCancel: false
+      })
+      return 0;
+    }
+
+    var that = this;
+    var time = that.data.time;
+    var detail = that.data.detail;
+    detail.userid = userid;
+    detail.mode = that.data.listitem;
+    detail.type = "activity";
+    detail.ispublic = that.data.ispublic;
+    detail.start = time.start[0] + " " + time.start[1];
+    detail.end = time.end[0] + " " + time.end[1];
+    detail.intro = that.data.intro.value;
+
+    for (var tt in detail) {
+      if (detail[tt] == 0) {
+        wx.showModal({
+          title: '温馨提示',
+          content: '有字段为空',
+          showCancel: false
+        })
+        return 0;
+      }
+    }
+
+    console.log(detail)
+    wx.showLoading({
+      title: '创建中',
+    })
+    wx.request({
+      url: api.addform,
+      data: detail,
+      success: function (res) {
+        wx.hideLoading();
+        var data = res.data;
+
+        var form = wx.getStorageSync("form");
+        if (form == undefined || form.length == 0) {
+          form = [];
+        }
+
+        var newDate = new Date();
+        var year = newDate.getFullYear();
+        var month = (newDate.getMonth() + 1) < 10 ? "0" + (newDate.getMonth() + 1) : newDate.getMonth() + 1;
+        var day = newDate.getDay() < 10 ? "0" + newDate.getDay() : newDate.getDay();
+        var hours = newDate.getHours() < 10 ? "0" + newDate.getHours() : newDate.getHours();
+        var minuts = newDate.getMinutes() < 10 ? "0" + newDate.getMinutes() : newDate.getMinutes();
+        var seconds = newDate.getSeconds() < 10 ? "0" + newDate.getSeconds() : newDate.getSeconds();
+        var time = year + "-" + month + "-" + day + " " + hours + ":" + minuts + ":" + seconds;
+
+        form.push({
+          title: detail.title,
+          id: JSON.parse(data.data).formid,
+          password: JSON.parse(data.data).password,
+          iconurl: detail.iconurl,
+          type: "build",
+          time: time,
+          intro: detail.intro
+        });
+
+        wx.setStorageSync("form", form);
+
+        if (data.msg == "请求成功") {
+          wx.showModal({
+            title: '提示',
+            showCancel: false,
+            content: '创建成功,查找密匙:' +
+              JSON.parse(data.data).password,
+            success: function () {
+              that.setData({
+                current: 2,
+                password: JSON.parse(data.data).password
+              });
+            }
+          })
+        }
+
+      }
+    })
   },
-  bindDateChange: function (e) {
-    console.log(e.detail.value)
-    this.setData({
-      date: e.detail.value
-    });
-  },
-  changegrounpselect: function (e) {
+  changeispublicselect: function (e) {
     const detail = e.detail;
     this.setData({
-      'groupselect': detail.value
+      'ispublic': detail.value
     })
   },
   sendrepeat: function (e) {
@@ -466,30 +558,72 @@ Page({
     }
   },
 
-  chooseImage: function (e) {
+  choosePosterImage: function (e) {
     var that = this
     wx.chooseImage({
-      count: 5, // 默认9
+      count: 1,
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
       success: function (res) {
+        wx.showLoading({
+          title: '上传中',
+        })
         var tempFilePaths = res.tempFilePaths
-        var temp = that.data.postimages
-        for (var i = 0; i < tempFilePaths.length; i++) {
-          temp.push(tempFilePaths[i])
-        }
-        that.setData({
-          postimages: temp
-        });
+        //上传图片
+        wx.uploadFile({
+          url: api.upload,
+          filePath: tempFilePaths[0],
+          name: 'file',
+          success: function (res) {
+            wx.hideLoading()
+            var path = JSON.parse(res.data).data;
+            var temp = that.data.detail;
+            var tt = temp.posterurl;
+            tt.push(path);
+            that.setData({
+              detail: temp
+            });
+          }
+        })
       }
     })
   },
+
+  chooseIconImage: function (e) {
+    var that = this
+    wx.chooseImage({
+      count: 1, // 默认9
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+        wx.showLoading({
+          title: '上传中',
+        })
+        wx.uploadFile({
+          url: api.upload,
+          filePath: res.tempFilePaths[0],
+          name: 'file',
+          success: function (res) {
+            wx.hideLoading()
+            var path = JSON.parse(res.data).data;
+            var temp = that.data.detail;
+            temp.iconurl = path;
+            that.setData({
+              detail: temp
+            });
+          }
+        })
+      }
+    })
+  },
+
   uploaddoc: function (e) {
     wx.showModal({
       title: '提示',
       content: '成功复制链接',
     })
   },
+
   changetextare: function (e) {
     // console.log(e.detail.value.length)
 
@@ -499,6 +633,118 @@ Page({
     this.setData({
       intro: temp
     });
+  },
+  chageinput: function (e) {
+    console.log(e.target.id)
+    var that = this;
+    var id = e.target.id;
+    switch (id) {
+      case 'title':
+        {
+          var temp = that.data.detail;
+          temp.title = e.detail.value;
+          that.setData({
+            detail: temp
+          });
+          break;
+        }
+      case 'username':
+        {
+          var temp = that.data.detail;
+          temp.username = e.detail.value;
+          that.setData({
+            detail: temp
+          });
+          break;
+        }
+      case 'title':
+        {
+          var temp = that.data.detail;
+          temp.title = e.detail.value;
+          that.setData({
+            detail: temp
+          });
+          break;
+        }
+      case 'maxnum':
+        {
+          var temp = that.data.detail;
+          temp.maxnum = e.detail.value;
+          that.setData({
+            detail: temp
+          });
+          break;
+        }
+      case 'tag':
+        {
+          var temp = that.data.detail;
+          temp.tags = that.data.tags[e.detail.value];
+          that.setData({
+            detail: temp
+          });
+          break;
+        }
+      case 'start1':
+        {
+          var temp = that.data.time;
+          temp.start[0] = e.detail.value;
+          that.setData({
+            time: temp
+          });
+          break;
+        }
+      case 'start2':
+        {
+          var temp = that.data.time;
+          temp.start[1] = e.detail.value;
+          that.setData({
+            time: temp
+          });
+          break;
+        }
+      case 'end1':
+        {
+          var temp = that.data.time;
+          temp.end[0] = e.detail.value;
+          that.setData({
+            time: temp
+          });
+          break;
+        }
+      case 'end2':
+        {
+          var temp = that.data.time;
+          temp.end[1] = e.detail.value;
+          that.setData({
+            time: temp
+          });
+          break;
+        }
+    }
+  },
+
+  showposter: function () {
+    wx.navigateTo({
+      url: '../poster/poster?posterurl=' + this.data.detail.posterurl[0] + "&title=" +
+        this.data.detail.title + "&password=" + this.data.password,
+    })
+  },
+
+  onShareAppMessage: function () {
+
+    return {
+      title: '表单分享',
+      desc: '填写表单即可报名',
+      // imageUrl: this.data.posterurl[0],
+      path: '/pages/formdetail/formdetail?password=' + this.data.password
+    }
+  },
+
+  sign: function () {
+    wx.navigateTo({
+      url: '/pages/formdetail/formdetail?password=' + this.data.password
+    })
   }
+
 
 })

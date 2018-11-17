@@ -1,53 +1,54 @@
-<i-tabs current="{{ current }}" color="#ffb93f" bindchange="handleChange" class="tab">
-  <i-tab key="tab1" title="已报名" count="3"></i-tab>
-  <i-tab key="tab2" title="已创建"></i-tab>
-  <i-tab key="tab3" title="已分享" dot></i-tab>
-</i-tabs>
-
-<view wx:if="{{current == 'tab1'}}" class='page'>
-
-<scroll-view scroll-y style="height: 900px;" bindscrolltoupper="upper" enable-back-to-top>
- <view class='reg-item'>
-    <view class='title'>项目名称
-      <i-tag class="i-tags" name="标签一" color="yellow">
-        标签一
-      </i-tag>
-      <i-tag class="i-tags" name="标签一" color="green">
-        标签一
-      </i-tag>
-    </view>
-
-    <view class='state'>审核
-      <text>\n</text>通过</view>
-    <image src='../../img/listimg/list.png'></image>
-    <view class='reg-time'>2018-7-8</view>
-    <view class='reg-con'>
-      这里展示项目的基本信息这里展示项目的基本信息这里展示项目的基本信息这里展示项目的基本信息这里展示项目的
-    </view>
-  </view>
-
-  <view class='reg-item'>
-    <view class='title'>项目名称
-      <i-tag class="i-tags" name="标签一" color="yellow">
-        标签一
-      </i-tag>
-      <i-tag class="i-tags" name="标签一" color="green">
-        标签一
-      </i-tag>
-    </view>
-
-    <view class='state'>审核
-      <text>\n</text>通过</view>
-    <image src='../../img/listimg/list.png'></image>
-    <view class='reg-time'>2018-7-8</view>
-    <view class='reg-con'>
-      这里展示项目的基本信息这里展示项目的基本信息这里展示项目的基本信息这里展示项目的基本信息这里展示项目的
-    </view>
-  </view>
-
-
-</scroll-view>
- 
+<view class='top_tab'>
+  <i-tabs current="{{ current }}" color="#00a4ff" bindchange="handleChange" class="tab" >
+    <i-tab class="i-tab" key="tab1" title="报名"></i-tab>
+    <i-tab class="i-tab" key="tab2" title="创建"></i-tab>
+  </i-tabs>
 </view>
-<view wx:if="{{current == 'tab2'}}">tab2</view>
-<view wx:if="{{current == 'tab3'}}">tab3</view>
+
+<view class='tabs' wx:if="{{current == 'tab2'}}">
+
+  <block wx:for="{{build}}" wx:key wx:if="{{build.length!=0}}">
+    <view class='item' bindtap='showbuild' data-id='{{item.formid}}'>
+      <view class='top'>
+        <!-- <image src="{{item.usericon}}" mode='aspectFill'></image>
+        <view class='name'>{{item.username}}</view> -->
+        <view class='type'>{{item.type == 'excel'?'数据处理':item.type == 'form'?'调查问卷':'集体活动'}}</view>
+      </view>
+      <view class='con'>
+        <view class='left'>
+          <view class='title'>{{item.title}}</view>
+          <view class='content'>{{item.intro}}</view>
+          <view class='time'>{{item.createtime}}</view>
+        </view>
+        <view class='right'>
+          <image src="{{item.iconurl}}" mode='aspectFill'></image>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view wx:if="{{build.length==0}}" class='bg' style='height:{{height}}px'>
+  </view>
+</view>
+
+
+<view class='tabs' wx:if="{{current == 'tab1'}}" >
+  <block wx:for="{{sign}}" wx:key wx:if="{{sign.length!=0}}">
+    <view class='item' bindtap='showjoin' data-id='{{item.sign.id}}'>
+      <view class='top'>
+        <view class='type'>{{item.form.type == 'excel'?'数据处理':item.form.type == 'form'?'调查问卷':'集体活动'}}</view>
+      </view>
+      <view class='con'>
+        <view class='left'>
+          <view class='title'>{{item.form.title}}</view>
+          <view class='content'>{{item.form.intro}}</view>
+          <view class='time'>{{item.sign.time}}</view>
+        </view>
+        <view class='right'>
+          <image src="{{item.form.iconurl}}" mode='aspectFill'></image>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view wx:if="{{sign.length==0}}" class='bg' style='height:{{height}}px'>
+  </view>
+</view>

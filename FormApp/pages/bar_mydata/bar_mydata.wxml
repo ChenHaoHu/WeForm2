@@ -2,39 +2,40 @@
   <view class='header'>
     <view class='basicdata'>
       <view class='userIcon'>
-        <!-- <open-data type="userAvatarUrl"></open-data> -->
-        <image src='{{userdata.usericon}}' mode='aspectFill' ></image>
+        <image  src='{{avatar}}' mode='aspectFill'></image>
       </view>
       <view class='userdata'>
         <view class='name'>
-       <view wx:if="{{false}}">{{userdata.username}}</view>
- <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">未登录</button>
-          <!-- <open-data type="userNickName"></open-data> -->
+          <view wx:if="{{islogin}}">{{name}}</view>
+          <button open-type="getUserInfo" lang="zh_CN"  wx:else bindgetuserinfo="tologin">未登录</button>
         </view>
-        <view class='statue'>  <i-icon type="businesscard"   size="13" color="#fff" /> 修改信息<i-icon type="enter"   size="13" color="#fff" /></view>
+        <view class='statue' wx:if="{{islogin}}">
+          <i-icon type="businesscard" size="13" color="#fff" /> 修改信息
+          <i-icon type="enter" size="13" color="#fff" />
+        </view>
       </view>
       <view class='setting'>
         <!-- <image src='../../img/setting.png' mode='aspectFit'></image> -->
-     <!-- <i-icon type="setup"   size="30" color="#80848f" /> -->
-     设置
+        <!-- <i-icon type="setup"   size="30" color="#80848f" /> -->
+        设置
       </view>
     </view>
     <view class='formdata'>
       <view class='forming formdataitem'>
         <view class='num'>100</view>
-        <view class='intro'>表单</view>
+        <view class='intro'>创建</view>
       </view>
       <view class='formed formdataitem'>
         <view class='num'>100</view>
-        <view class='intro'>粉丝</view>
+        <view class='intro'>问卷</view>
       </view>
       <view class='formstart formdataitem'>
         <view class='num'>100</view>
-        <view class='intro'>关注</view>
+        <view class='intro'>EXCEL</view>
       </view>
       <view class='formstart formdataitem'>
         <view class='num'>100</view>
-        <view class='intro'>关注</view>
+        <view class='intro'>活动</view>
       </view>
     </view>
   </view>
@@ -72,23 +73,34 @@
     </view> -->
     <view class='items'>
       <view class='item'>
-        <image src='../../img/itemimg/edit.png' mode='aspectFit'></image>
-        <view class='itemtext'>提交修改</view>
+        <image src='../../img/data/build.png' mode='aspectFit'></image>
+        <view class='itemtext'>我的创建</view>
       </view>
       <view class='item'>
-        <image src='../../img/itemimg/mind.png' mode='aspectFit'></image>
-        <view class='itemtext'>我的提醒</view>
+        <image src='../../img/data/sign.png' mode='aspectFit'></image>
+        <view class='itemtext'>我的报名</view>
       </view>
       <view class='item'>
-        <image src='../../img/itemimg/update.png' mode='aspectFit'></image>
+        <image src='../../img/data/course.png' mode='aspectFit'></image>
 
-        <view class='itemtext'>产品更新</view>
+        <view class='itemtext'>使用教程</view>
       </view>
       <view class='item'>
-        <image src='../../img/itemimg/back.png' mode='aspectFit'></image>
+        <image src='../../img/data/service.png' mode='aspectFit'></image>
+
+        <view class='itemtext'>联系客服</view>
+      </view>
+       <view class='item'>
+        <image src='../../img/data/about.png' mode='aspectFit'></image>
+
+        <view class='itemtext'>了解我们</view>
+      </view>
+       <view class='item'>
+        <image src='../../img/data/back.png' mode='aspectFit'></image>
 
         <view class='itemtext'>意见反馈</view>
       </view>
+    
     </view>
   </view>
 

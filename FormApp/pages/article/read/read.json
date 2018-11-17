@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "i-icon": "../../../dist/icon/index",
+    "i-panel": "../../../dist/panel/index"
+  },
+  "navigationBarTitleText": "分享内容"
+}

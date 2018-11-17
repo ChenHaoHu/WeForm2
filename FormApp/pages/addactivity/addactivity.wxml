@@ -87,43 +87,62 @@
     <view class='pag2con'>
       <i-panel>
         <view class='item'>
-          <view class='name'>主题/名称</view>
-          <input type='text'></input>
+          <view class='name'>问卷名称</view>
+          <input type='text' bindinput='chageinput' id='title'></input>
         </view>
         <view class='item'>
           <view class='name'>发起人</view>
-          <input type='text'></input>
+          <input type='text' bindinput='chageinput' id='username'></input>
         </view>
         <view class='item'>
-          <view class='name'>活动标签</view>
-          <input type='text' placeholder='以空格隔开,例如校园 运动'></input>
+          <view class='name'>内容标签</view>
+          <picker  range="{{tags}}" bindchange="chageinput" id='tag'>
+            {{detail.tags}}
+          </picker>
+        </view>
+            <view class='item'>
+          <view class='name'>人数限制</view>
+         <input type='number' bindinput='chageinput' id='maxnum'></input>
         </view>
         <view class='item'>
-          <view class='name'>活动简介
+          <view class='name'>内容简介
             <text>\n</text>({{intro.length}}/300)</view>
           <textarea maxlength='300' bindinput='changetextare'></textarea>
         </view>
         <view class='item'>
-          <view class='name'>截至日期</view>
-          <picker mode="date" value="{{date}}" start="2017-09-01" end="2025-09-01" bindchange="bindDateChange">
-            {{date}}
+          <view class='name'>开始日期</view>
+          <picker mode="date"  bindchange="chageinput" id='start1'>
+          {{time.start[0]}}
+          </picker>
+            <picker mode="time"  bindchange="chageinput" id='start2'>
+          {{time.start[1]}}
           </picker>
         </view>
         <view class='item'>
-          <view class='name'>创建群组</view>
-          <i-switch value="{{groupselect}}" size="large" bind:change="changegrounpselect" slot="footer">
-            <view slot="open">创建</view>
+          <view class='name'>截至日期</view>
+          <picker mode="date" value="{{time.end[0]}}" bindchange="chageinput" id='end1'>
+          {{time.end[0]}}
+          </picker>
+          <picker mode="time" value="{{detail.end}}"  bindchange="chageinput" id='end2'>
+        {{time.end[1]}}
+          </picker>
+        </view>
+
+        <view class='item'>
+          <view class='name'>是否公开</view>
+          <i-switch value="{{ispublic}}" size="large" bind:change="changeispublicselect" slot="footer">
+            <view slot="open">接受</view>
             <view slot="close">拒绝</view>
           </i-switch>
         </view>
-        <view class='item'>
+        <!-- <view class='item'>
           <view class='name'>重复提交</view>
           <i-switch value="{{sendrepeat}}" size="large" bind:change="sendrepeat" slot="footer">
             <view slot="open">允许</view>
             <view slot="close">拒绝</view>
           </i-switch>
-        </view>
-        <view class='item'>
+        </view> -->
+        <!-- <view class='item'>
           <view class='name'>四位密匙</view>
           <view class='password'>
             <block wx:for="{{password.value}}" wx:key="">
@@ -140,23 +159,31 @@
               </view>
             </block>
           </view>
-        </view>
+        </view> -->
         <view class='item'>
-          <view class='name'>海报上传
-            <text>\n</text>(五张)</view>
-          <view class=" postimg">
-            <block wx:for='{{postimages}}' class="images" wx:key="">
-              <image src='{{item}}'></image>
-            </block>
-            <view class="weui-uploader__input-box" bindtap="chooseImage" wx:if="{{postimages.length<6}}"></view>
+          <view class='name'>浓缩图上传
+            <text>\n</text>(一张)</view>
+          <view class="iconimg">
+            <image src='{{detail.iconurl}}' wx:if="{{detail.iconurl!= ''}}"></image>
+            <view class="weui-uploader__input-box" bindtap="chooseIconImage" wx:else></view>
           </view>
         </view>
         <view class='item'>
+          <view class='name'>海报上传
+            <text>\n</text>(最多六张)</view>
+          <view class=" postimg">
+            <block wx:for='{{detail.posterurl}}' class="images" wx:key="">
+              <image src='{{item}}'></image>
+            </block>
+            <view class="weui-uploader__input-box" bindtap="choosePosterImage" wx:if="{{detail.posterurl.length<6}}"></view>
+          </view>
+        </view>
+        <!-- <view class='item'>
           <view class='name'>文档上传</view>
           <view class="uploaddoc" bindtap='uploaddoc'>
             点击此处复制链接在浏览器打开上传
           </view>
-        </view>
+        </view> -->
 
       </i-panel>
     </view>
@@ -164,8 +191,8 @@
 
   <view class='page3' wx:if="{{current == '2'}}">
     <view class='preview'>
-      <view class='title'>表单主题</view>
-      <block wx:for="{{listitem}}">
+      <view class='title'>{{detail.title}}</view>
+      <block wx:for="{{listitem}}" wx:key="">
         <view class="{{item.type == '输入框'?'item':'item2'}}">
           <view class="{{item.type == '输入框'?'name':'name2'}}">{{index+1}}、{{item.text}}{{item.type == '单选框'?'(单选框)':item.type == '多选框'?'(多选框)':' '}}</view>
           <input type='text' wx:if="{{item.type == '输入框'}}" wx:key="" placeholder='输入框'></input>
@@ -284,26 +311,28 @@
   </view>
 
   <view class='buts' wx:if="{{current == '2'}}">
-    <view>
+    <view bindtap='showposter'>
       <view class='icon'>
-        <i-icon type="picture" size="28" color="#ff3b31" />
+          <image src="../../img/form/post.png"></image>
       </view>
       <text>生成海报</text>
     </view>
-    <view>
+     <button open-type='share'>  <view bindtap='share'>
       <view class='icon'>
-        <i-icon type="share" size="28" color="#ff3b31" />
+          <image src="../../img/form/wechat.png"></image>
       </view>
       <text>微信分享</text>
-    </view>
-    <view>
+    </view></button>
+    <!-- <view>
       <view class='icon'>
-        <i-icon type="dynamic" size="28" color="#ff3b31" />
+       <image src="../../img/form/web.png"></image>
       </view>
 
       <text>生成web版</text>
-    </view>
-  </view>
+    </view> -->
 
+
+  </view>
+    <button class='but'  wx:if="{{current == '2'}}" bindtap='sign'>去报名</button>
 
 </view>

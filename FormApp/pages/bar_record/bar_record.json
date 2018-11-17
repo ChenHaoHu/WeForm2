@@ -6,6 +6,7 @@
   "i-tabs": "../../dist/tabs/index",
   "i-tab": "../../dist/tab/index",
   "i-tag": "../../dist/tag/index"
-}
-
+},
+"enablePullDownRefresh": true,
+"navigationBarTitleText": "记录"
 }

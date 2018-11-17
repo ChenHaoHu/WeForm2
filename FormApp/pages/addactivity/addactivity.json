@@ -11,5 +11,6 @@
     "i-row": "../../dist/row/index",
     "i-divider": "../../dist/divider/index",
     "i-switch": "../../dist/switch/index"
-  }
+  },
+  "navigationBarTitleText": "添加活动"
 }

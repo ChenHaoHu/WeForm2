@@ -1,0 +1,26 @@
+<swiper autoplay interval="5000" wx:if="{{imgUrls != null}}">
+  <block wx:for="{{imgUrls}}" wx:key="">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" />
+    </swiper-item>
+  </block>
+</swiper>
+<view wx:else style='height:100rpx;'>
+
+</view>
+<i-panel title="表单详情">
+  <i-input value="{{ detail.title}}" title="标题" disabled />
+  <i-input value="{{detail.username }}" title="发起人" disabled />
+  <i-input value="{{detail.type=='excel'?'表格':detail.type=='form'?'调查问卷':'集体活动' }}" title="类型" disabled />
+  <i-input value="{{detail.password }}" title="密匙" disabled />
+  <!-- <i-input value="{{ detail.intro }}" title="介绍" disabled /> -->
+  <i-panel title="简介" class="panel">
+    <view class='intro'>{{ detail.intro }}</view>
+  </i-panel>
+  <i-input value="{{ detail.start }}" title="开始时间" disabled />
+  <i-input value="{{ detail.end }}" title="结束时间" disabled />
+  <i-input value="{{ detail.maxnum }}" title="人数" disabled />
+</i-panel>
+
+<button class='sign' bindtap='sign'>报名</button>
+<button class='sign'  open-type='share'>分享</button>

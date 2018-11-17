@@ -1,8 +1,8 @@
 {
-  "navigationBarBackgroundColor": "#00a4ff",
-  "navigationBarTextStyle": "white",
-  "navigationBarTitleText": "消息",
-  "backgroundColor": "#eeeeee",
-  "backgroundTextStyle": "light",
-  "enablePullDownRefresh": false
+"usingComponents": {
+  "i-tabs": "../../dist/tabs/index",
+  "i-tab": "../../dist/tab/index"
+},
+"navigationBarTitleText": "发现",
+"enablePullDownRefresh": true
 }

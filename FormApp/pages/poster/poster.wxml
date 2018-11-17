@@ -1,0 +1,5 @@
+<view class='main' style='width: {{width}}px; height: {{height}}px;' wx:if="{{title.length!=0}}">
+<view style='height:30rpx;'></view>
+<canvas canvas-id="myCanvas" style="width:{{width-40}}px; height: {{height-100}}px;"  id='myCanvas'/>
+<view  class='save' bindtap='save' >保存图片</view>
+</view>

@@ -1,6 +1,6 @@
 <view class="page" animation="{{an}}">
   <view class='notice'>
-    <view>已经创建：100</view>
+    <view>欢迎使用汇表单！</view>
   </view>
   <view class='body'>
     <view class='list item' bindtap='buildquestionnaire'>
@@ -13,13 +13,28 @@
       <view class='itemimg2'>
         <image src='../../img/addimg/activity.png' mode='aspectFit'> </image>
       </view>
-      <view>活动创建</view>
+      <view>活动报名</view>
     </view>
-      <view class='article item' bindtap='buildarticle'>
+    <view class='article item' bindtap='buildarticle'>
       <view class='itemimg3'>
-        <image src='../../img/addimg/article.png' mode='aspectFit'> </image>
+        <image src='../../img/addimg/share.png' mode='aspectFit'> </image>
       </view>
-      <view>文章投稿</view>
+      <view>收获描述</view>
+    </view>
+
+     <view class='excel item'   bindtap='buildexcel'>
+      <view class='itemimg4'>
+        <image src='../../img/addimg/excel.png' mode='aspectFit'> </image>
+      </view>
+      <view>数据收集</view>
+    </view>
+
+    
+     <view class='pass item'   bindtap='topassword'>
+      <view class='itemimg5'>
+        <image src='../../img/addimg/password.png' mode='aspectFit'> </image>
+      </view>
+      <view>表单密匙</view>
     </view>
   </view>
 </view>

@@ -1,28 +1,28 @@
-var requests = require('../../utils/requests.js');
 const api = require('../../api.js');
 Page({
 
   data: {
-    imgUrls: [
-      'http://p19.qhimg.com/bdm/720_444_0/t012168a8f58bfb5203.jpg',
-      'http://p17.qhimg.com/bdm/360_222_0/t01a36f6e90f6319a4b.jpg',
-      'http://p17.qhimg.com/bdm/720_444_0/t01ed8c6214fbd7842b.jpg',
-    ],
     name: '游客',
     avatar: '../../img/login.png',
     inputShowed: false,
     inputVal: "",
-    indicatorDots: true, //是否显示面板指示点
-    autoplay: true, //是否自动切换
-    interval: 3000, //自动切换时间间隔
-    duration: 1000, //滑动动画时长
     inputShowed: false,
     inputVal: "",
     state: '未登录',
     islogin: false,
-    userid: ''
+    userid: '',
+    num: {
+      form: 0,
+      activity: 0,
+      article: 0
+    },
+    good: [],
+    tags: []
   },
 
+  onShow() {
+    this.loaddata();
+  },
   onLoad: function(e) {
     var user = wx.getStorageSync('user');
     var that = this;
@@ -37,15 +37,44 @@ Page({
       }, 1000)
     } else {
       that.setData({
-        state: '签到',
+        state: '密匙输入',
         islogin: true,
         userid: user.userid,
         name: user.name,
         avatar: user.avatar,
       });
     }
+    this.loaddata();
   },
 
+
+  loaddata() {
+    var that = this;
+    wx.request({
+      url: api.onloaddata,
+      data: {
+        level: 5
+      },
+      success: function(res) {
+        console.log(res)
+        var good = res.data.data.good;
+        for (var i = 0; i < good.length; i++) {
+          good[i].tags = JSON.parse(good[i].tags);
+        }
+
+        that.setData({
+          num: res.data.data.num,
+          good: good,
+          tags: res.data.data.tags,
+        });
+      }
+    })
+  },
+  toPassword:function(){
+    wx.navigateTo({
+      url: '/pages/password/password',
+    })
+  },
   showInput: function() {
     this.setData({
       inputShowed: true
@@ -155,6 +184,36 @@ Page({
         wx.hideLoading()
         console.log(res)
       }
+    })
+  },
+
+  moretag: function() {
+    wx.switchTab({
+      url: "/pages/bar_sear/bar_sear",
+    })
+  },
+
+  lookarticle: function(e) {
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/article/read/read?id=' + id,
+    })
+  },
+
+  moreArticle: function(e) {
+    wx.navigateTo({
+      url: '/pages/list/list?type=article',
+    })
+  },
+  moreForm: function(e) {
+    wx.navigateTo({
+      url: '/pages/list/list?type=form',
+    })
+  },
+
+  moreActivity: function(e) {
+    wx.navigateTo({
+      url: '/pages/list/list?type=activity',
     })
   }
 })

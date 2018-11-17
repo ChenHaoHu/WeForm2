@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "i-input": "../../dist/input/index",
+        "i-panel": "../../dist/panel/index"
+  },
+  "navigationBarTitleText": "内容详细"
+}

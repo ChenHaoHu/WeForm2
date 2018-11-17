@@ -1,95 +1,116 @@
-.page {
+.tag {
   width: 100%;
-  height: 1300rpx;
-  background-color: #f7f4f8;
-  padding-top: 60rpx;
+  padding-top: 30rpx;
+  padding-left: 10%;
+  font-size: 80rpx;
+  color: #888;
 }
 
-.appmessage {
+.top_tab {
+  width: 100%;
+  position: fixed;
+  height: 42px;
+  background-color: white;
+  z-index: 10;
+}
+
+.tabs {
+  padding-top: 42px;
+}
+
+.item {
+  width: 94%;
+  margin-left: 3%;
+  height: 300rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  border-top: 2rpx solid #eee;
+}
+
+.top, .con {
   display: flex;
   flex-direction: row;
-  width: 96%;
-  height: 120rpx;
-  line-height: 120rpx;
-  font-size: 40rpx;
-  font-weight: 600;
-  margin-left: 2%;
-  background-color: white;
 }
 
-.appmessage image {
-  width: 120rpx;
-  height: 120rpx;
+.top {
+  height: 60rpx;
+  position: relative;
 }
 
-.groupmessage {
-
-  display: flex;
-  flex-direction: column;
-  width: 96%;
-  margin-left: 2%;
-  background-color: #f7f4f8;
-  margin-top: 30rpx;
+.con {
+  width: 100%;
+  height: 240rpx;
+  justify-content: space-between;
 }
 
-
-.title{
-  border-left: 10rpx solid #f90;
-  height: 80rpx;
-  line-height: 80rpx;
-  font-size: 40rpx;
-  font-weight: 550;
-  margin-bottom: 20rpx;
-  padding-left: 20rpx;
-}
-
-.item{
-    position: relative;
-  width: 96%;
-  padding-top: 20rpx;
-  padding-left: 2%;
-  display: flex;
-  flex-direction: row; 
-  height: 140rpx;
-  margin-bottom: 20rpx;
-  background-color: white;
-  border-radius: 10rpx;
-
-}
-
-.item image{
-  width: 120rpx;
-  height: 120rpx;
+.top image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 30rpx;
+  margin-right: 10rpx;
+  margin-top: 5rpx;
   border-radius: 50%;
 }
 
-.item .groupname{
-  margin-left: 20rpx;
-  line-height: 140rpx;
-  font-size: 40rpx;
-  font-weight: 500;
-
+.name {
+  color: #999;
+  float: left;
+  font-size: 30rpx;
+  line-height: 50rpx;
 }
 
- .notice{
-   position: absolute;
-   top: 10rpx;
-   right: 10rpx;
-   display: flex;
-   flex-direction: column;
-   height: 120rpx;
+.left {
+  margin-top: 10rpx;
+  width: 48%;
+  height: 100%;
+  position: relative;
 }
 
-.groupdate{
-  font-size: 35rpx;
-  font-weight: 200;
-  height: 50%;
+.left .title {
+  color: #444;
+  font-size: 30rpx;
 }
 
-.num{
-  color: white;
-  border-radius: 50%;
-  background-color: red;
+.left .content {
+  color: #999;
+  font-size: 28rpx;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.right {
+  width: 48%;
+  /* background-color: gray; */
+  height: 100%;
+}
+
+.right image {
+  width: 90%;
+  height: 200rpx;
+  border-radius: 5rpx;
+}
+
+.type {
+  width: 20%;
   text-align: center;
-   height: 50%;
+  font-size: 25rpx;
+  border: 2rpx solid #999;
+  position: absolute;
+  right: 10rpx;
+  color: #aaa;
+}
+
+.time{
+  text-align: center;
+  font-size: 25rpx;
+  position: absolute;
+  bottom: 10rpx;
+}
+
+.bg{
+  width: 100%;
+    background: url('https://www.hcyang.top/file/images/bg.png') no-repeat;
+    background-size: 100% 100%;
 }

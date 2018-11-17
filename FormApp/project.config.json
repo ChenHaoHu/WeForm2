@@ -11,7 +11,7 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.2.1",
+	"libVersion": "2.4.0",
 	"appid": "wx4f4a31c69f79cd6e",
 	"projectname": "FormApp",
 	"isGameTourist": false,
@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
@@ -44,7 +44,104 @@
 				{
 					"id": -1,
 					"name": "标签详细",
-					"pathName": "pages/tag_detail/tag_detail"
+					"pathName": "pages/tag_detail/tag_detail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "添加表单页面",
+					"pathName": "pages/bar_add/bar_add",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "添加表单页面",
+					"pathName": "pages/addquestionnaire/addquestionnaire",
+					"query": ""
+				},
+				{
+					"id": 4,
+					"name": "海报页面",
+					"pathName": "pages/poster/poster",
+					"query": "posterurl=https://www.hcyang.top/file/images/1542094970246.jpg&title=test&password=BFHM"
+				},
+				{
+					"id": 5,
+					"name": "报名页面",
+					"pathName": "pages/input/input",
+					"query": "password=BCHK"
+				},
+				{
+					"id": 6,
+					"name": "表单详细",
+					"pathName": "pages/formdetail/formdetail",
+					"query": "password=BJHL"
+				},
+				{
+					"id": -1,
+					"name": "record",
+					"pathName": "pages/bar_record/bar_record",
+					"query": ""
+				},
+				{
+					"id": 8,
+					"name": "报名人员",
+					"pathName": "pages/joinlist/joinlist",
+					"query": "formid=1018"
+				},
+				{
+					"id": -1,
+					"name": "发现",
+					"pathName": "pages/bar_sear/bar_sear",
+					"query": "formid=1018"
+				},
+				{
+					"id": -1,
+					"name": "写文章",
+					"pathName": "pages/article/write/write",
+					"query": ""
+				},
+				{
+					"id": 11,
+					"name": "list",
+					"pathName": "pages/list/list",
+					"query": "type=activity"
+				},
+				{
+					"id": 12,
+					"name": "read",
+					"pathName": "pages/article/read/read",
+					"query": "id=1019"
+				},
+				{
+					"id": -1,
+					"name": "输入密匙",
+					"pathName": "pages/password/password",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "add",
+					"pathName": "pages/bar_add/bar_add",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "addexcel",
+					"pathName": "pages/addexcel/addexcel",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "addform",
+					"pathName": "pages/addform/addform",
+					"query": ""
+				},
+				{
+					"id": 17,
+					"name": "bar_mydata",
+					"pathName": "pages/bar_mydata/bar_mydata",
+					"query": ""
 				}
 			]
 		}

@@ -1,82 +1,120 @@
-.tab{
-  position: fixed;
-  top: 0rpx;
+.tag {
   width: 100%;
-  z-index: 100;
-}
-scroll-view{
-  margin-top: 120rpx;
-}
-
-
-.reg-item {
-  margin-top: 30rpx;
-  width: 96%;
-  margin-left: 2%;
-  position: relative;
-  padding-top: 60rpx;
-}
-
-i-tag{
-  margin-left: 21rpx;
-}
-
-
-.reg-item image {
-  position: absolute;
-  top: 0rpx;
-  left: 20rpx;
-  width: 160rpx;
-  height: 160rpx;
-}
-
-.reg-time {
-  position: absolute;
-  right: 40rpx;
-  bottom: 10rpx;
-  color: white;
-  font-weight: 600;
-}
-
-.reg-con {
-  max-height: 400rpx;
-  /* background-color: #a6edff; */
-    background: linear-gradient(#a6edff, #60c7e0);
-  border-radius: 20rpx;
-  padding-top: 100rpx;
+  padding-top: 30rpx;
+  padding-left: 10%;
+  font-size: 80rpx;
   color: #888;
-  /* padding-left: 30rpx; *//* word-wrap: break-word; */
-  text-align: justify;
-  padding-left: 20rpx;
-  padding-right: 20rpx;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 6;
-  -webkit-box-orient: vertical;
-  padding-bottom: 100rpx;
 }
 
-.state {
-  right: -10rpx;
-  top: 20rpx;
-  position: absolute;
-  width: 180rpx;
-  height: 180rpx;
+.i-tab{
+  width: 30%;
+}
+
+.top_tab {
+  width: 100%;
+  position: fixed;
+  height: 42px;
+  background-color: white;
+  z-index: 10;
+}
+
+.tabs {
+  padding-top: 42px;
+}
+
+.item {
+  width: 94%;
+  margin-left: 3%;
+  height: 300rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  border-top: 2rpx solid #eee;
+}
+
+.top, .con {
+  display: flex;
+  flex-direction: row;
+}
+
+.top {
+  height: 60rpx;
+  position: relative;
+}
+
+.con {
+  width: 100%;
+  height: 240rpx;
+  justify-content: space-between;
+}
+
+.top image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 30rpx;
+  margin-right: 10rpx;
+  margin-top: 5rpx;
   border-radius: 50%;
-  border: 10rpx solid #ff0036;
-  color: #ff0036;
-  font-weight: 800;
-  transform: rotate(30deg);
-  font-size: 50rpx;
-  text-align: center;
 }
 
+.name {
+  color: #999;
+  float: left;
+  font-size: 30rpx;
+  line-height: 50rpx;
+}
 
-.title{
+.left {
+  margin-top: 10rpx;
+  width: 48%;
+  height: 100%;
+  position: relative;
+}
+
+.left .title {
+  color: #444;
+  font-size: 30rpx;
+}
+
+.left .content {
+  color: #999;
+  font-size: 28rpx;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.right {
+  width: 48%;
+  /* background-color: gray; */
+  height: 100%;
+}
+
+.right image {
+  width: 90%;
+  height: 200rpx;
+  border-radius: 5rpx;
+}
+
+.type {
+  width: 20%;
+  text-align: center;
+  font-size: 25rpx;
+  border: 2rpx solid #999;
   position: absolute;
-  left: 200rpx;
-  font-weight: 600;
-  top: 80rpx;
-  font-size: 40rpx;
+  right: 10rpx;
+  color: #aaa;
+}
+
+.time{
+  text-align: center;
+  font-size: 25rpx;
+  position: absolute;
+  bottom: 10rpx;
+}
+
+.bg{
+  width: 100%;
+    background: url('https://www.hcyang.top/file/images/bg.png') no-repeat;
+    background-size: 100% 100%;
 }

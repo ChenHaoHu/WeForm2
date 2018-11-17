@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "i-icon": "../../../dist/icon/index",
-    "i-panel": "../../../dist/panel/index"
-  }
-}

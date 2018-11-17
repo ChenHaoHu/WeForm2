@@ -31,14 +31,13 @@
   background-color: rgb(20, 210, 235);
   color: white;
   margin-top: 20rpx;
-  width: 180rpx;
+  width: 200rpx;
   height: 40rpx;
   line-height: 40rpx;
   text-align: center;
   border-radius: 20rpx;
   font-size: 28rpx;
   padding-left: 5rpx;
-
 }
 
 /**处理头像*/
@@ -48,7 +47,7 @@
   height: 130rpx;
 }
 
-.userIcon image{
+.userIcon image {
   width: 130rpx;
   height: 130rpx;
   border-radius: 50%;
@@ -102,15 +101,15 @@
 }
 
 .but {
-    padding-top: 10rpx;
+  padding-top: 10rpx;
   display: flex;
   flex-direction: row;
   background-color: white;
   justify-content: space-between;
-  padding-bottom:20rpx; 
+  padding-bottom: 20rpx;
 }
 
-.butitem  {
+.butitem {
   width: 25%;
   display: flex;
   flex-direction: column;
@@ -118,8 +117,7 @@
   font-size: 30rpx;
 }
 
-
-.butimgae image{
+.butimgae image {
   width: 100%;
   height: 80rpx;
 }
@@ -129,32 +127,31 @@
   flex-direction: column;
 }
 
-
 .item {
   width: 100%;
   height: 80rpx;
   background-color: white;
   margin-bottom: 10rpx;
   line-height: 80rpx;
- display: flex;
+  display: flex;
   flex-direction: row;
   /* justify-content: flex-start; */
   padding-left: 20rpx;
 }
 
-.item image{
+.item image {
   margin-top: 20rpx;
   margin-left: 10rpx;
   width: 40rpx;
   height: 40rpx;
 }
 
-.itemtext{
+.itemtext {
   font-size: 30rpx;
   margin-left: 40rpx;
 }
 
-.footer{
+.footer {
   width: 100%;
   background-color: white;
   font-size: 25rpx;
@@ -164,7 +161,14 @@
   bottom: 30rpx;
 }
 
-button{
-  border-radius: 0rpx;
-  background-color:white;
+button {
+  background-color: #00a4ff;
+  color: white;
+  border: 5rpx solid white;
 }
+
+button::after {
+  border: none;
+}
+
+

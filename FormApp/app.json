@@ -2,14 +2,24 @@
   "pages": [
     "pages/bar_home/bar_home",
     "pages/bar_mydata/bar_mydata",
-    "pages/addquestionnaire/addquestionnaire",
+    "pages/addform/addform",
     "pages/bar_add/bar_add",
     "pages/group/groupchat/groupchat",
     "pages/bar_record/bar_record",
     "pages/bar_sear/bar_sear",
     "pages/addactivity/addactivity",
     "pages/tag_more/tag_more",
-    "pages/tag_detail/tag_detail"
+    "pages/tag_detail/tag_detail",
+    "pages/poster/poster",
+    "pages/input/input",
+    "pages/formdetail/formdetail",
+    "pages/joinlist/joinlist",
+    "pages/article/write/write",
+    "pages/article/list/list",
+    "pages/article/read/read",
+    "pages/password/password",
+    "pages/addexcel/addexcel",
+    "pages/list/list"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -28,22 +38,22 @@
         "selectedIconPath": "tabbar/bar1_home.png"
       },
       {
-        "pagePath": "pages/bar_record/bar_record",
-        "text": "记录",
-        "iconPath": "tabbar/bar2_message.png",
-        "selectedIconPath": "tabbar/bar1_message.png"
+        "pagePath": "pages/bar_sear/bar_sear",
+        "iconPath": "tabbar/bar2_sear.png",
+        "selectedIconPath": "tabbar/bar1_sear.png",
+        "text": "发现"
       },
       {
         "pagePath": "pages/bar_add/bar_add",
         "iconPath": "tabbar/bar2_add.png",
         "selectedIconPath": "tabbar/bar1_add.png",
-        "text": "发布"
+        "text": "创建"
       },
       {
-        "pagePath": "pages/bar_sear/bar_sear",
-        "iconPath": "tabbar/bar2_sear.png",
-        "selectedIconPath": "tabbar/bar1_sear.png",
-        "text": "发现"
+        "pagePath": "pages/bar_record/bar_record",
+        "text": "记录",
+        "iconPath": "tabbar/bar2_message.png",
+        "selectedIconPath": "tabbar/bar1_message.png"
       },
       {
         "pagePath": "pages/bar_mydata/bar_mydata",

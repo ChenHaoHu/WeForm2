@@ -5,11 +5,5 @@
       "i-cell": "../../dist/cell/index",
         "i-icon": "../../dist/icon/index"
     },
-  "navigationBarBackgroundColor": "#00a4ff",
-  "navigationBarTextStyle": "black",
-  "navigationBarTitleText": "我的",
-  "backgroundColor": "#eeeeee",
-  "backgroundTextStyle": "light",
-  "enablePullDownRefresh": false
-
+  "navigationBarTitleText": "我的"
 }

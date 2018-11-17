@@ -1,56 +1,35 @@
-<view class="page">
+<view class='top_tab'>
+  <i-tabs current="{{ current_scroll }}" scroll bindchange="handleChangeScroll">
+    <block wx:for="{{tabs}}" wx:key>
+      <i-tab key="{{index}}" title="{{item.name}}"></i-tab>
+    </block>
+  </i-tabs>
+</view>
+<view class='tabs'>
 
-  <view class='appmessage'>
-    <image src='../../img/listimg/list.png'></image>
-    <view>开发者私信</view>
-  </view>
-
-
-  <view class='groupmessage'>
-    <view class='title'>我的群组</view>
-    <view class='con'>
-      <view class='item'>
-        <image src='http://p19.qhimg.com/bdm/360_222_0/t0178eefecdce9951a5.jpg'></image>
-        <view class='groupname'>微信小程序开发群</view>
-        <view class='notice'>
-          <view class='groupdate'>9-10</view>
-          <view class='num'>5</view>
-        </view>
+  <block wx:for="{{data}}" wx:key wx:if="{{data.length!=0}}">
+    <view class='item' bindtap='look' data-type='{{item.type}}' data-id='{{item.id}}'>
+      <view class='top'>
+        <image src="{{item.usericon}}" mode='aspectFill'></image>
+        <view class='name'>{{item.username}}</view>
+        <view class='type'>{{item.type == 'share'?'分享':item.type == 'form'?'调查问卷':'集体活动'}}</view>
       </view>
-       <view class='item'>
-        <image src='http://p19.qhimg.com/bdm/360_222_0/t0178eefecdce9951a5.jpg'></image>
-        <view class='groupname'>微信小程序开发群</view>
-        <view class='notice'>
-          <view class='groupdate'>9-10</view>
-          <view class='num'>5</view>
+      <view class='con'>
+        <view class='left'>
+          <view class='title'>{{item.title}}</view>
+          <view class='content'>{{item.intro}}</view>
+          <view class='time'>{{item.time}}</view>
         </view>
-      </view>
-       <view class='item'>
-        <image src='http://p19.qhimg.com/bdm/360_222_0/t0178eefecdce9951a5.jpg'></image>
-        <view class='groupname'>微信小程序开发群</view>
-        <view class='notice'>
-          <view class='groupdate'>9-10</view>
-          <view class='num'>5</view>
-        </view>
-      </view>
-       <view class='item'>
-        <image src='http://p19.qhimg.com/bdm/360_222_0/t0178eefecdce9951a5.jpg'></image>
-        <view class='groupname'>微信小程序开发群</view>
-        <view class='notice'>
-          <view class='groupdate'>9-10</view>
-          <view class='num'>5</view>
-        </view>
-      </view>
-       <view class='item'>
-        <image src='http://p19.qhimg.com/bdm/360_222_0/t0178eefecdce9951a5.jpg'></image>
-        <view class='groupname'>微信小程序开发群</view>
-        <view class='notice'>
-          <view class='groupdate'>9-10</view>
-          <view class='num'>5</view>
-        </view>
+        <view class='right'>
+          <image src="{{item.icon}}" mode='aspectFill'></image>
+        </view> 
       </view>
     </view>
-  </view>
+  </block>
+
+
+<view wx:if="{{data.length==0}}" class='bg' style='height:{{height}}px'>
+</view>
 
 
 

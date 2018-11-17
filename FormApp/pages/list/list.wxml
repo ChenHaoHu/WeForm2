@@ -1,0 +1,49 @@
+<view class='tabs'>
+
+  <block wx:for="{{data}}" wx:key wx:if="{{data.length!=0}}">
+    <view class='item' bindtap='look' data-type='{{item.type}}' data-id='{{item.id}}' wx:if="{{type == 'article'}}">
+
+
+
+
+      <view class='top'>
+        <!-- <image src="{{item.usericon}}" mode='aspectFill'></image>
+        <view class='name'>{{item.username}}</view> -->
+        <view class='type'>{{item.type == 'share'?'分享':item.type == 'form'?'调查问卷':'集体活动'}}</view>
+      </view>
+      <view class='con'>
+        <view class='left'>
+          <view class='title'>{{item.title}}</view>
+          <view class='content'>{{item.intro}}</view>
+          <view class='time' wx:if="{{type == 'article'}}">{{item.time}}</view>
+          <view class='time' wx:if="{{type == 'form'|| type == 'activity'}}">{{item.createtime}}</view>
+        </view>
+        <view class='right'>
+          <image src="{{item.iconurl}}" mode='aspectFill'></image>
+        </view>
+      </view>
+    </view>
+
+    <view class='item' bindtap='look' data-type='{{item.type}}' data-id='{{item.password}}' wx:if="{{type == 'form'|| type == 'activity'}}">
+      <view class='top'>
+        <!-- <image src="{{item.usericon}}" mode='aspectFill'></image>
+        <view class='name'>{{item.username}}</view> -->
+        <view class='type'>{{item.type == 'share'?'分享':item.type == 'form'?'调查问卷':'集体活动'}}</view>
+      </view>
+      <view class='con'>
+        <view class='left'>
+          <view class='title'>{{item.title}}</view>
+          <view class='content'>{{item.intro}}</view>
+          <view class='time' wx:if="{{type == 'article'}}">{{item.time}}</view>
+          <view class='time' wx:if="{{type == 'form'|| type == 'activity'}}">{{item.createtime}}</view>
+        </view>
+        <view class='right'>
+          <image src="{{item.iconurl}}" mode='aspectFill'></image>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <view wx:if="{{data.length==0}}" class='bg' style='height:{{height}}px'>
+  </view>
+</view>
